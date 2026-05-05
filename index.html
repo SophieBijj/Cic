@@ -766,6 +766,17 @@
     .sched-legend .li { display: flex; align-items: center; gap: 0.4rem; }
     .sched-legend .ld { width: 10px; height: 10px; border-radius: 2px; flex-shrink: 0; }
 
+    /* ── HERO DATE ── */
+    .hero-date {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.4rem, 4vw, 2.2rem);
+      font-weight: 300;
+      color: var(--gold);
+      letter-spacing: 0.08em;
+      margin-bottom: 1.8rem;
+      animation: fadeUp 1s ease both;
+    }
+
     .len, .lfr { display: none; }
     body.en .len { display: inline; }
     body.fr .lfr { display: inline; }
@@ -780,7 +791,7 @@
       <li><a href="what.html"><span lang-inline="en">What to Expect</span><span lang-inline="fr">À quoi s'attendre</span></a></li>
       <li><a href="#schedule"><span lang-inline="en">Schedule</span><span lang-inline="fr">Horaire</span></a></li>
       <li><a href="team.html"><span lang-inline="en">Team</span><span lang-inline="fr">Équipe</span></a></li>
-      <li><a href="#pricing"><span lang-inline="en">Pricing</span><span lang-inline="fr">Tarifs</span></a></li>
+      <li><a href="pricing.html"><span lang-inline="en">Pricing</span><span lang-inline="fr">Tarifs</span></a></li>
       <li><a href="#contact" class="cta"><span lang-inline="en">Register</span><span lang-inline="fr">S'inscrire</span></a></li>
     </ul>
     <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">☰</button>
@@ -793,10 +804,7 @@
 
   <!-- ─────────────── HERO ─────────────── -->
   <header class="hero">
-    <div class="hero-label">
-      <span lang-inline="en">Parc national de la Mauricie · Lac Wapizagonke</span>
-      <span lang-inline="fr">Parc national de la Mauricie · Lac Wapizagonke</span>
-    </div>
+    <div class="hero-date">September 1–4, 2026</div>
 
     <h1>Camping<br/><em>in Contact</em></h1>
 
@@ -805,13 +813,8 @@
       <span lang-inline="fr">Rassembler les gens et les pratiques autour du Contact Improvisation</span>
     </p>
 
-    <div class="hero-meta">
-      <span class="pill date">September 1–4, 2026</span>
-    </div>
-
-    <div class="hero-scroll">
-      <span lang-inline="en">scroll</span>
-      <span lang-inline="fr">défiler</span>
+    <div class="hero-label" style="margin-top:1rem; margin-bottom:0; animation: fadeUp 1s 0.5s ease both;">
+      Parc national de la Mauricie · Lac Wapizagonke
     </div>
   </header>
 
@@ -1032,51 +1035,26 @@
   <span id="pricing"></span>
   <section>
     <div class="section-label">
-      <span lang-inline="en">Cost</span>
+      <span lang-inline="en">Pricing</span>
       <span lang-inline="fr">Tarifs</span>
     </div>
 
     <div lang-content="en">
       <h2>Priced by<br/><em>timing & reality.</em></h2>
-      <p>Accessibility is at the heart of what we do. We thought carefully about a range of options to make this event both accessible and financially sustainable. We also want to be honest: knowing early that tickets are sold genuinely helps us as organizers. It lets us plan, commit, and show up fully. We trust you to choose the price that fits your means. If you can commit early, it makes a real difference, and we are deeply grateful for it. Registration opens June 5, 2026.</p>
+      <p>Accessibility is at the heart of what we do. We offer a sliding scale and early-bird options to make this gathering both accessible and financially sustainable. We trust you to choose the price that fits your means — and if you can commit early, it makes a real difference for us as organizers.</p>
     </div>
 
     <div lang-content="fr">
       <h2>Prix selon<br/><em>le moment & la réalité.</em></h2>
-      <p>L'accessibilité est au cœur de notre engagement. Nous avons pensé à une variété d'options pour rendre l'événement accessible et viable. On veut aussi être honnêtes : savoir à l'avance que les billets sont vendus nous aide vraiment en tant qu'organisatrices. Ça nous permet de planifier, de nous engager, et d'être pleinement présentes. Merci de choisir le tarif qui reflète le mieux votre capacité financière. Si vous pouvez vous engager tôt, ça fait une vraie différence, et on vous en est sincèrement reconnaissantes. Inscriptions le 5 juin 2026.</p>
+      <p>L'accessibilité est au cœur de notre engagement. Nous offrons une échelle mobile et des tarifs hâtifs pour rendre ce rassemblement à la fois accessible et viable. Merci de choisir le tarif qui reflète votre capacité — et si vous pouvez vous engager tôt, ça fait une vraie différence pour nous.</p>
     </div>
 
-    <div class="cost-table">
-      <div class="cost-row header">
-        <span><span lang-inline="en">Ticket</span><span lang-inline="fr">Billet</span></span>
-        <span><span lang-inline="en">Availability</span><span lang-inline="fr">Disponibilité</span></span>
-        <span><span lang-inline="en">Price (CAD)</span><span lang-inline="fr">Prix (CAD)</span></span>
-      </div>
-      <div class="cost-row">
-        <span class="cost-tier">Believers ✦</span>
-        <span class="cost-desc"><span lang-inline="en">First 5 tickets · for those who jump in early and make it real</span><span lang-inline="fr">5 premiers billets · pour celleux qui embarquent d'entrée de jeu</span></span>
-        <span class="cost-price">$98–180</span>
-      </div>
-      <div class="cost-row">
-        <span class="cost-tier">Early Bird</span>
-        <span class="cost-desc"><span lang-inline="en">Next 15 tickets · or until July 31, whichever comes first</span><span lang-inline="fr">15 billets suivants · ou jusqu'au 31 juillet, selon ce qui arrive en premier</span></span>
-        <span class="cost-price">$120–180</span>
-      </div>
-      <div class="cost-row">
-        <span class="cost-tier">Regular</span>
-        <span class="cost-desc"><span lang-inline="en">Aug 1 – Sept 1</span><span lang-inline="fr">1er août – 1er septembre</span></span>
-        <span class="cost-price">$150–180</span>
-      </div>
+    <div style="margin-top:2rem;">
+      <a href="pricing.html" style="display:inline-block; border:1px solid var(--gold); color:var(--gold); font-family:'Jost',sans-serif; font-size:0.72rem; font-weight:400; letter-spacing:0.18em; text-transform:uppercase; padding:0.9rem 2.2rem; border-radius:2px; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.background='var(--gold)';this.style.color='var(--bg)';" onmouseout="this.style.background='';this.style.color='var(--gold)';">
+        <span lang-inline="en">See pricing options →</span>
+        <span lang-inline="fr">Voir les options de tarif →</span>
+      </a>
     </div>
-
-    <p class="cost-note">
-      <span lang-inline="en">* Includes 5 workshops, 3 jams, waterfront camping &amp; park entry. BYO food &amp; camping gear.</span>
-      <span lang-inline="fr">* Inclut 5 ateliers, 3 jams, camping en bord de lac &amp; entrée au parc. Apportez votre nourriture &amp; équipement.</span>
-    </p>
-    <p class="cost-note">
-      <span lang-inline="en">If you want to attend but the price is a barrier, <a href="#interest-form" style="color:var(--gold);text-decoration:underline;text-underline-offset:3px;">get in touch with us</a>. Kids are welcome too, just <a href="#interest-form" style="color:var(--gold);text-decoration:underline;text-underline-offset:3px;">reach out</a>.</span>
-      <span lang-inline="fr">Si vous souhaitez participer mais que le prix est un obstacle, <a href="#interest-form" style="color:var(--gold);text-decoration:underline;text-underline-offset:3px;">écrivez-nous</a>. Les enfants sont les bienvenu·es, <a href="#interest-form" style="color:var(--gold);text-decoration:underline;text-underline-offset:3px;">contactez-nous</a>.</span>
-    </p>
   </section>
 
   <!-- ─────────────── INTEREST FORM ─────────────── -->
@@ -1097,74 +1075,11 @@
         <p>Laissez vos coordonnées ci-dessous et vous serez la première personne informée à l'ouverture des places. Les billets Believers iront à cette liste en priorité.</p>
       </div>
 
-      <!-- Replace YOUR_FORMSPREE_ID with your actual Formspree form ID -->
-      <form id="interest-form" action="https://formspree.io/f/maqakjnn" method="POST">
-        <div class="form-row">
-          <div class="field">
-            <label for="name">
-              <span lang-inline="en">Name</span>
-              <span lang-inline="fr">Nom</span>
-            </label>
-            <input type="text" id="name" name="name" required
-              placeholder="Your name / Votre nom" />
-          </div>
-          <div class="field">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required
-              placeholder="your@email.com" />
-          </div>
-        </div>
-
-        <div class="field">
-          <label for="city">
-            <span lang-inline="en">Where are you based?</span>
-            <span lang-inline="fr">D'où vous écrivez-vous?</span>
-          </label>
-          <input type="text" id="city" name="city"
-            placeholder="City / region · Ville / région" />
-        </div>
-
-        <div class="field">
-          <label for="source">
-            <span lang-inline="en">How did you hear about us?</span>
-            <span lang-inline="fr">Comment avez-vous entendu parler de nous?</span>
-          </label>
-          <input type="text" id="source" name="source"
-            placeholder="Word of mouth, social media, a teacher..." />
-        </div>
-
-        <div class="field">
-          <label for="volunteer">
-            <span lang-inline="en">Interested in volunteering?</span>
-            <span lang-inline="fr">Intéressé·e à bénévoler?</span>
-          </label>
-          <select id="volunteer" name="volunteer">
-            <option value="">
-            </option>
-            <option value="yes-en">Yes</option>
-            <option value="yes-fr">Oui</option>
-            <option value="maybe">Maybe / Peut-être</option>
-            <option value="no">No / Non</option>
-          </select>
-        </div>
-
-        <input type="hidden" name="_subject" value="Camping in Contact Interest Form" />
-        <input type="hidden" name="_next" value="" />
-
-        <button type="submit" class="submit-btn">
-          <span lang-inline="en">Register my interest →</span>
-          <span lang-inline="fr">Enregistrer mon intérêt →</span>
-        </button>
-
-        <p class="form-note">
-          <span lang-inline="en">No spam. We'll only email when registration opens and for essential updates.</span>
-          <span lang-inline="fr">Pas de spam. On vous écrira uniquement à l'ouverture des inscriptions et pour les infos essentielles.</span>
-        </p>
-      </form>
-
-      <div class="success-msg" id="success-msg">
-        <span lang-inline="en">You're on the list. See you by the lake. 🌊</span>
-        <span lang-inline="fr">Vous êtes sur la liste. À bientôt au bord du lac. 🌊</span>
+      <div style="margin-top:2.5rem;">
+        <a href="#" class="submit-btn" style="display:inline-block; text-decoration:none;">
+          <span lang-inline="en">Register →</span>
+          <span lang-inline="fr">S'inscrire →</span>
+        </a>
       </div>
     </section>
   </div>
