@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Equipment List · Camping in Contact</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg: #1e3a28;
+      --bg2: #172e20;
+      --cream: #f5edd8;
+      --cream-dim: #c2b89a;
+      --gold: #d4a853;
+      --sage: #7ab88a;
+      --sage-dim: #2e5a3c;
+      --divider: rgba(122,184,138,0.2);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--cream);
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    .navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 99;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2rem;
+      height: 54px;
+      background: rgba(20, 52, 32, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--divider);
+    }
+
+    .navbar-brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--cream);
+      text-decoration: none;
+      letter-spacing: 0.03em;
+    }
+
+    .navbar-links {
+      display: flex;
+      align-items: center;
+      gap: 0.2rem;
+      list-style: none;
+    }
+
+    .navbar-links a {
+      color: var(--cream-dim);
+      text-decoration: none;
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.4rem 0.7rem;
+      border-radius: 2px;
+      transition: color 0.2s;
+      white-space: nowrap;
+    }
+
+    .navbar-links a:hover { color: var(--cream); }
+    .navbar-links a.cta { border: 1px solid rgba(212,168,83,0.5); color: var(--gold); }
+    .navbar-links a.cta:hover { background: var(--gold); color: var(--bg); }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--cream);
+      cursor: pointer;
+      font-size: 1.2rem;
+      padding: 0.3rem;
+    }
+
+    @media (max-width: 760px) {
+      .navbar-links { display: none; }
+      .navbar-links.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 54px; left: 0; right: 0;
+        background: rgba(20,52,32,0.97);
+        padding: 1rem;
+        gap: 0.2rem;
+        border-bottom: 1px solid var(--divider);
+      }
+      .nav-toggle { display: block; }
+    }
+
+    .lang-toggle {
+      display: flex;
+      background: rgba(20,48,32,0.85);
+      border: 1px solid var(--divider);
+      border-radius: 2px;
+      overflow: hidden;
+      flex-shrink: 0;
+      margin-left: 0.75rem;
+    }
+    .lang-toggle button {
+      background: none;
+      border: none;
+      color: var(--cream-dim);
+      font-family: 'Jost', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.45rem 0.85rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .lang-toggle button.active { background: var(--sage-dim); color: var(--cream); }
+    .lang-toggle button:hover:not(.active) { color: var(--cream); }
+
+    [lang-content] { display: none; }
+    body.en [lang-content="en"] { display: block; }
+    body.fr [lang-content="fr"] { display: block; }
+    body.en [lang-inline="fr"] { display: none; }
+    body.fr [lang-inline="en"] { display: none; }
+    [lang-inline] { display: inline; }
+
+    .page-header {
+      padding: 9rem 2rem 4rem;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--sage);
+      margin-bottom: 1.8rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--divider);
+    }
+
+    h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      line-height: 1.1;
+      margin-bottom: 1.6rem;
+    }
+    h2 em { font-style: italic; color: var(--gold); }
+
+    h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+      font-size: 1.15rem;
+      color: var(--cream);
+      margin-bottom: 0.8rem;
+      margin-top: 2rem;
+    }
+
+    p {
+      font-size: 1rem;
+      color: var(--cream-dim);
+      max-width: 620px;
+      margin-bottom: 1.2rem;
+    }
+
+    section {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+      border-top: 1px solid var(--divider);
+    }
+
+    ul {
+      list-style: none;
+      font-size: 0.88rem;
+      color: var(--cream-dim);
+      line-height: 2.1;
+      max-width: 620px;
+    }
+
+    ul li::before {
+      content: '–';
+      color: var(--sage);
+      margin-right: 0.6rem;
+    }
+
+    .category {
+      margin-bottom: 2.5rem;
+    }
+
+    footer {
+      padding: 3rem 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      border-top: 1px solid var(--divider);
+      font-size: 0.75rem;
+      color: var(--sage-dim);
+      letter-spacing: 0.1em;
+    }
+  </style>
+</head>
+<body class="en">
+
+  <nav class="navbar">
+    <a href="index.html" class="navbar-brand">Camping in Contact</a>
+    <ul class="navbar-links" id="navbar-links">
+      <li><a href="what.html"><span lang-inline="en">What to Expect</span><span lang-inline="fr">À quoi s'attendre</span></a></li>
+      <li><a href="index.html#schedule"><span lang-inline="en">Schedule</span><span lang-inline="fr">Horaire</span></a></li>
+      <li><a href="team.html"><span lang-inline="en">Team</span><span lang-inline="fr">Équipe</span></a></li>
+      <li><a href="pricing.html"><span lang-inline="en">Pricing</span><span lang-inline="fr">Tarifs</span></a></li>
+      <li><a href="index.html#contact" class="cta"><span lang-inline="en">Register</span><span lang-inline="fr">S'inscrire</span></a></li>
+    </ul>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">☰</button>
+    <div class="lang-toggle">
+      <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+      <button id="btn-fr" onclick="setLang('fr')">FR</button>
+    </div>
+  </nav>
+
+  <div class="page-header">
+    <div class="section-label">
+      <span lang-inline="en">Packing list</span>
+      <span lang-inline="fr">Liste d'équipement</span>
+    </div>
+    <div lang-content="en">
+      <h2>Equipment<br/><em>list.</em></h2>
+      <p>A detailed list of everything to bring for four days of camping, dancing and living in the forest. More details coming soon.</p>
+    </div>
+    <div lang-content="fr">
+      <h2>Liste<br/><em>d'équipement.</em></h2>
+      <p>Une liste détaillée de tout ce qu'il faut apporter pour quatre jours de camping, de danse et de vie en forêt. Plus de détails à venir.</p>
+    </div>
+  </div>
+
+  <section>
+    <div lang-content="en">
+      <div class="category">
+        <h3>Sleeping</h3>
+        <ul>
+          <li>Tent (tents only — no RVs or vans)</li>
+          <li>Sleeping bag appropriate for cool nights</li>
+          <li>Sleeping pad or mattress</li>
+          <li>Pillow</li>
+        </ul>
+      </div>
+      <div class="category">
+        <h3>Clothing</h3>
+        <ul>
+          <li>Comfortable movement clothes (layers — mornings are cool)</li>
+          <li>Rain gear</li>
+          <li>Warm layer for evenings</li>
+          <li>Swimwear</li>
+          <li>Sturdy shoes for trails</li>
+          <li>Sandals or water shoes</li>
+        </ul>
+      </div>
+      <div class="category">
+        <h3>Food &amp; kitchen</h3>
+        <ul>
+          <li>All personal food &amp; snacks for 4 days</li>
+          <li>Camp stove + fuel (recommended — 1 fire pit &amp; 2 wood stoves shared on site)</li>
+          <li>Cookware, utensils, plate, mug</li>
+          <li>Dish soap &amp; scrubber</li>
+          <li>Cooler</li>
+          <li>Reusable water bottle</li>
+        </ul>
+      </div>
+      <div class="category">
+        <h3>Personal care</h3>
+        <ul>
+          <li>Biodegradable soap &amp; shampoo</li>
+          <li>Sunscreen &amp; bug repellent</li>
+          <li>Towels (one for swimming, one for showering)</li>
+          <li>Headlamp + extra batteries</li>
+          <li>Any personal medications</li>
+        </ul>
+      </div>
+      <div class="category">
+        <h3>Nice to have</h3>
+        <ul>
+          <li>Journal &amp; pen</li>
+          <li>Books or cards for quiet time</li>
+          <li>Musical instrument</li>
+          <li>Hammock</li>
+          <li>Earplugs</li>
+        </ul>
+      </div>
+      <p style="margin-top:2rem; font-size:0.82rem; color:var(--sage-dim); font-style:italic;">An equipment share form will be sent with your welcome email — you'll be able to coordinate gear with other participants.</p>
+    </div>
+
+    <div lang-content="fr">
+      <div class="category">
+        <h3>Sommeil</h3>
+        <ul>
+          <li>Tente (tentes seulement — pas de VR ni de camionnettes)</li>
+          <li>Sac de couchage adapté aux nuits fraîches</li>
+          <li>Matelas de camping</li>
+          <li>Oreiller</li>
+        </ul>
+      </div>
+      <div class="category">
+        <h3>Vêtements</h3>
+        <ul>
+          <li>Vêtements confortables pour le mouvement (en couches — les matins sont frais)</li>
+          <li>Imperméable</li>
+          <li>Couche chaude pour les soirées</li>
+          <li>Maillot de bain</li>
+          <li>Chaussures solides pour les sentiers</li>
+          <li>Sandales ou chaussures d'eau</li>
+        </ul>
+      </div>
+      <div class="category">
+        <h3>Nourriture &amp; cuisine</h3>
+        <ul>
+          <li>Toute la nourriture personnelle pour 4 jours</li>
+          <li>Réchaud de camping + combustible (recommandé — 1 foyer &amp; 2 poêles à bois partagés)</li>
+          <li>Vaisselle, ustensiles, assiette, tasse</li>
+          <li>Savon à vaisselle &amp; éponge</li>
+          <li>Glacière</li>
+          <li>Bouteille d'eau réutilisable</li>
+        </ul>
+      </div>
+      <div class="category">
+        <h3>Soins personnels</h3>
+        <ul>
+          <li>Savon &amp; shampoing biodégradables</li>
+          <li>Crème solaire &amp; chasse-moustiques</li>
+          <li>Serviettes (une pour nager, une pour la douche)</li>
+          <li>Lampe frontale + piles de rechange</li>
+          <li>Médicaments personnels</li>
+        </ul>
+      </div>
+      <div class="category">
+        <h3>Pratique à avoir</h3>
+        <ul>
+          <li>Journal &amp; stylo</li>
+          <li>Livres ou cartes pour les moments calmes</li>
+          <li>Instrument de musique</li>
+          <li>Hamac</li>
+          <li>Bouchons d'oreilles</li>
+        </ul>
+      </div>
+      <p style="margin-top:2rem; font-size:0.82rem; color:var(--sage-dim); font-style:italic;">Un formulaire de partage d'équipement sera envoyé avec votre courriel de bienvenue — vous pourrez coordonner le matériel avec les autres participant·es.</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>Camping in Contact · Sept 1–4, 2026 · Parc national de la Mauricie · Québec</p>
+  </footer>
+
+  <script>
+    function setLang(lang) {
+      document.body.className = lang;
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+      document.getElementById('btn-fr').classList.toggle('active', lang === 'fr');
+    }
+    const browserLang = navigator.language.startsWith('fr') ? 'fr' : 'en';
+    setLang(browserLang);
+    document.getElementById('nav-toggle').addEventListener('click', () => {
+      document.getElementById('navbar-links').classList.toggle('open');
+    });
+    document.querySelectorAll('.navbar-links a').forEach(a => {
+      a.addEventListener('click', () => document.getElementById('navbar-links').classList.remove('open'));
+    });
+  </script>
+</body>
+</html>

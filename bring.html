@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>What to Expect · Camping in Contact</title>
+  <title>What to Bring · Camping in Contact</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -19,11 +19,9 @@
       --sage: #7ab88a;
       --sage-dim: #2e5a3c;
       --divider: rgba(122,184,138,0.2);
-      --form-bg: rgba(255,255,255,0.05);
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     html { scroll-behavior: smooth; }
 
     body {
@@ -38,9 +36,7 @@
     /* ── NAVBAR ── */
     .navbar {
       position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
+      top: 0; left: 0; right: 0;
       z-index: 99;
       display: flex;
       align-items: center;
@@ -205,55 +201,16 @@
       border-top: 1px solid var(--divider);
     }
 
-    /* ── WHAT GRID ── */
-    .what-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0;
-      margin-top: 2.5rem;
-      border: 1px solid var(--divider);
-      border-radius: 2px;
-      overflow: hidden;
-    }
-
-    .what-item {
-      padding: 2rem;
-      border-right: 1px solid var(--divider);
-      border-bottom: 1px solid var(--divider);
-    }
-
-    .what-item:nth-child(even) { border-right: none; }
-    .what-item:nth-last-child(-n+2) { border-bottom: none; }
-
-    .what-num {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2.5rem;
-      font-weight: 300;
-      color: var(--sage-dim);
-      line-height: 1;
-      margin-bottom: 0.5rem;
-    }
-
-    .what-item h3 {
-      font-family: 'Cormorant Garamond', serif;
-      font-weight: 600;
-      font-size: 1.15rem;
-      margin-bottom: 0.5rem;
-      color: var(--cream);
-    }
-
-    .what-item p {
-      font-size: 0.88rem;
-      margin: 0;
-      line-height: 1.6;
-    }
-
     /* ── DETAIL GRID ── */
     .detail-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 2.5rem;
       margin-top: 2rem;
+    }
+
+    @media (max-width: 640px) {
+      .detail-grid { grid-template-columns: 1fr; }
     }
 
     .detail-grid ul {
@@ -275,19 +232,6 @@
       color: var(--sage-dim);
       letter-spacing: 0.1em;
     }
-
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @media (max-width: 640px) {
-      .what-grid { grid-template-columns: 1fr; }
-      .what-item:nth-child(even) { border-right: none; }
-      .what-item:nth-last-child(-n+2) { border-bottom: 1px solid var(--divider); }
-      .what-item:last-child { border-bottom: none; }
-      .detail-grid { grid-template-columns: 1fr; }
-    }
   </style>
 </head>
 <body class="en">
@@ -299,7 +243,7 @@
       <li><a href="what.html"><span lang-inline="en">What to Expect</span><span lang-inline="fr">À quoi s'attendre</span></a></li>
       <li><a href="index.html#schedule"><span lang-inline="en">Schedule</span><span lang-inline="fr">Horaire</span></a></li>
       <li><a href="team.html"><span lang-inline="en">Team</span><span lang-inline="fr">Équipe</span></a></li>
-      <li><a href="index.html#pricing"><span lang-inline="en">Pricing</span><span lang-inline="fr">Tarifs</span></a></li>
+      <li><a href="pricing.html"><span lang-inline="en">Pricing</span><span lang-inline="fr">Tarifs</span></a></li>
       <li><a href="index.html#contact" class="cta"><span lang-inline="en">Register</span><span lang-inline="fr">S'inscrire</span></a></li>
     </ul>
     <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">☰</button>
@@ -312,82 +256,60 @@
   <!-- ─────────────── PAGE HEADER ─────────────── -->
   <div class="page-header">
     <div class="section-label">
-      <span lang-inline="en">What to expect</span>
-      <span lang-inline="fr">À quoi s'attendre</span>
+      <span lang-inline="en">Packing list</span>
+      <span lang-inline="fr">Liste d'emballage</span>
     </div>
 
     <div lang-content="en">
-      <h2>Everything you need<br/><em>to know.</em></h2>
+      <h2>What to<br/><em>bring.</em></h2>
+      <p>Everything you need to know before you pack. This is a group camping site — no RVs, no electricity hookups, no cell service. Come prepared and come light.</p>
     </div>
 
     <div lang-content="fr">
-      <h2>Tout ce qu'il faut<br/><em>savoir.</em></h2>
+      <h2>Quoi<br/><em>apporter.</em></h2>
+      <p>Tout ce qu'il faut savoir avant de faire vos bagages. C'est un site de camping de groupe — pas de VR, pas de branchement électrique, pas de service cellulaire. Venez préparé·e et léger·ère.</p>
     </div>
   </div>
 
-  <!-- ─────────────── WHAT'S INCLUDED ─────────────── -->
+  <!-- ─────────────── BRING / ON SITE / NOT ON SITE ─────────────── -->
   <section>
-    <div class="section-label">
-      <span lang-inline="en">What's included</span>
-      <span lang-inline="fr">Ce qui est inclus</span>
-    </div>
-
-    <div class="what-grid">
-      <div class="what-item">
-        <div class="what-num">5</div>
-        <h3><span lang-inline="en">Workshops</span><span lang-inline="fr">Ateliers</span></h3>
-        <p><span lang-inline="en">Led by our facilitators across the four days</span><span lang-inline="fr">Animés par nos facilitateur·ices sur quatre jours</span></p>
+    <div class="detail-grid">
+      <div>
+        <div class="section-label" style="margin-bottom:1rem;">
+          <span lang-inline="en">What to bring</span>
+          <span lang-inline="fr">Quoi apporter</span>
+        </div>
+        <ul>
+          <li><span style="color:var(--sage); margin-right:0.5rem;">–</span><span lang-inline="en">All personal camping gear (tents only — no RVs or vans allowed on this campsite)</span><span lang-inline="fr">Tout votre équipement de camping (tentes seulement — pas de VR ni de camionnettes)</span></li>
+          <li><span style="color:var(--sage); margin-right:0.5rem;">–</span><span lang-inline="en">Personal food &amp; cooking equipment (only one fire pit + 2 wood stoves shared on site — consider a camp stove)</span><span lang-inline="fr">Nourriture personnelle &amp; matériel de cuisine (seulement un foyer + 2 poêles à bois partagés — prévoyez un réchaud)</span></li>
+          <li><span style="color:var(--sage); margin-right:0.5rem;">–</span><span lang-inline="en">Equipment share form will be sent with your welcome email</span><span lang-inline="fr">Formulaire de partage d'équipement envoyé avec votre courriel de bienvenue</span></li>
+        </ul>
       </div>
-      <div class="what-item">
-        <div class="what-num">3</div>
-        <h3>Jams</h3>
-        <p><span lang-inline="en">Open dance jams including an evening silent jam</span><span lang-inline="fr">Jams de danse incluant un jam silencieux en soirée</span></p>
+      <div>
+        <div class="section-label" style="margin-bottom:1rem;">
+          <span lang-inline="en">What's on site</span>
+          <span lang-inline="fr">Sur place</span>
+        </div>
+        <ul>
+          <li><span style="color:var(--sage); margin-right:0.5rem;">–</span><span lang-inline="en">Waterfront group campsite directly on Lac Wapizagonke — swimming from shore</span><span lang-inline="fr">Site de groupe en bord de lac directement sur le lac Wapizagonke — baignade depuis la rive</span></li>
+          <li><span style="color:var(--sage); margin-right:0.5rem;">–</span><span lang-inline="en">Two kitchen shelters — picnic tables, wood-burning stoves, storage cabinets</span><span lang-inline="fr">Deux abris-cuisine — tables à pique-nique, poêles à bois, armoires de rangement</span></li>
+          <li><span style="color:var(--sage); margin-right:0.5rem;">–</span><span lang-inline="en">Service building — drinking water, toilets, free showers (accessible), two outdoor sinks</span><span lang-inline="fr">Bâtiment de service — eau potable, toilettes, douches gratuites (accessibles), deux éviers extérieurs</span></li>
+        </ul>
       </div>
-      <div class="what-item">
-        <div class="what-num">∞</div>
-        <h3><span lang-inline="en">Swimming &amp; trails</span><span lang-inline="fr">Baignade &amp; sentiers</span></h3>
-        <p><span lang-inline="en">Waterfront camping, lake swims, forest hikes</span><span lang-inline="fr">Camping en bord de lac, baignade, randonnées en forêt</span></p>
-      </div>
-      <div class="what-item">
-        <div class="what-num">🔥</div>
-        <h3><span lang-inline="en">Fire &amp; song</span><span lang-inline="fr">Feu &amp; chant</span></h3>
-        <p><span lang-inline="en">Evening campfire song circle and open gathering</span><span lang-inline="fr">Cercle de chansons et soirée autour du feu</span></p>
+      <div>
+        <div class="section-label" style="margin-bottom:1rem;">
+          <span lang-inline="en">What's not on site</span>
+          <span lang-inline="fr">Pas sur place</span>
+        </div>
+        <ul>
+          <li><span style="color:var(--sage); margin-right:0.5rem;">–</span><span lang-inline="en">Parking — unload your gear, then park at Esker and walk back (~10–15 min)</span><span lang-inline="fr">Stationnement — déchargez, garez à l'Esker, retournez à pied (~10–15 min)</span></li>
+          <li><span style="color:var(--sage); margin-right:0.5rem;">–</span><span lang-inline="en">Electricity hookups</span><span lang-inline="fr">Branchements électriques</span></li>
+          <li><span style="color:var(--sage); margin-right:0.5rem;">–</span><span lang-inline="en">Cell service (almost none at La Clairière)</span><span lang-inline="fr">Service cellulaire (presque inexistant à La Clairière)</span></li>
+          <li><span style="color:var(--sage); margin-right:0.5rem;">–</span><span lang-inline="en">Ice — nearest source is Mistagance Campground, ~9 min drive from Esker parking (please consider this when packing your food)</span><span lang-inline="fr">Glace — la plus proche : camping Mistagance, ~9 min de route depuis le stationnement de l'Esker (pensez-y en planifiant votre nourriture)</span></li>
+          <li><span style="color:var(--sage); margin-right:0.5rem;">–</span><span lang-inline="en">Dogs — kids are welcome, fur babies are not. No dogs on site.</span><span lang-inline="fr">Les chiens — les enfants sont les bienvenu·es, pas les animaux. Pas de chiens sur place.</span></li>
+        </ul>
       </div>
     </div>
-
-  </section>
-
-  <!-- ─────────────── WHAT TO EXPECT LIST ─────────────── -->
-  <section>
-    <div class="section-label">
-      <span lang-inline="en">What to expect</span>
-      <span lang-inline="fr">À quoi s'attendre</span>
-    </div>
-
-    <ul style="list-style:none; font-size:0.88rem; color:var(--cream-dim); line-height:2.2; max-width:620px;">
-      <li><span style="color:var(--sage); margin-right:0.5rem;">–</span><span lang-inline="en">Dancing on the grass, the beach, or in the water — no human-made dance floor</span><span lang-inline="fr">Danser sur l'herbe, la plage ou dans l'eau — pas de plancher de danse artificiel</span></li>
-      <li><span style="color:var(--sage); margin-right:0.5rem;">–</span><span lang-inline="en">Dancing, rolling and moving on grass and uneven land</span><span lang-inline="fr">Danser, rouler et se mouvoir sur l'herbe et un terrain inégal</span></li>
-      <li><span style="color:var(--sage); margin-right:0.5rem;">–</span><span lang-inline="en">Rain or shine — we practice in variable weather</span><span lang-inline="fr">Par tous les temps — nous pratiquons peu importe la météo</span></li>
-    </ul>
-  </section>
-
-  <section>
-    <div style="margin-top:0.5rem;">
-      <a href="bring.html" style="display:inline-block; border:1px solid var(--gold); color:var(--gold); font-family:'Jost',sans-serif; font-size:0.72rem; font-weight:400; letter-spacing:0.18em; text-transform:uppercase; padding:0.9rem 2.2rem; border-radius:2px; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.background='var(--gold)';this.style.color='var(--bg)';" onmouseout="this.style.background='';this.style.color='var(--gold)';">
-        <span lang-inline="en">What to bring →</span>
-        <span lang-inline="fr">Quoi apporter →</span>
-      </a>
-    </div>
-    <p style="margin-top:2rem; font-size:0.82rem; color:var(--sage-dim); font-style:italic;">
-      <span lang-inline="en">More details coming soon.</span>
-      <span lang-inline="fr">Plus de détails à venir.</span>
-    </p>
-    <p style="margin-top:1rem; font-size:0.88rem;">
-      <a href="equipment.html" style="color:var(--gold); text-decoration:none; border-bottom:1px solid rgba(212,168,83,0.4); padding-bottom:1px; transition:border-color 0.2s;" onmouseover="this.style.borderColor='var(--gold)';" onmouseout="this.style.borderColor='rgba(212,168,83,0.4)';">
-        <span lang-inline="en">→ Click here for a detailed equipment list →</span>
-        <span lang-inline="fr">→ Cliquez ici pour une liste d'équipement détaillée →</span>
-      </a>
-    </p>
   </section>
 
   <!-- ─────────────── FOOTER ─────────────── -->
