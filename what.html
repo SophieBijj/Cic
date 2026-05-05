@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>What to Expect · Camping in Contact</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg: #1e3a28;
+      --bg2: #172e20;
+      --cream: #f5edd8;
+      --cream-dim: #c2b89a;
+      --gold: #d4a853;
+      --terra: #c4622d;
+      --sage: #7ab88a;
+      --sage-dim: #2e5a3c;
+      --divider: rgba(122,184,138,0.2);
+      --form-bg: rgba(255,255,255,0.05);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--cream);
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ── NAVBAR ── */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 99;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2rem;
+      height: 54px;
+      background: rgba(20, 52, 32, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--divider);
+      transition: background 0.3s;
+    }
+
+    .navbar-brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--cream);
+      text-decoration: none;
+      white-space: nowrap;
+      letter-spacing: 0.03em;
+    }
+
+    .navbar-links {
+      display: flex;
+      align-items: center;
+      gap: 0.2rem;
+      list-style: none;
+    }
+
+    .navbar-links a {
+      color: var(--cream-dim);
+      text-decoration: none;
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.4rem 0.7rem;
+      border-radius: 2px;
+      transition: color 0.2s;
+      white-space: nowrap;
+    }
+
+    .navbar-links a:hover { color: var(--cream); }
+
+    .navbar-links a.cta {
+      border: 1px solid rgba(212,168,83,0.5);
+      color: var(--gold);
+    }
+    .navbar-links a.cta:hover {
+      background: var(--gold);
+      color: var(--bg);
+    }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--cream);
+      cursor: pointer;
+      font-size: 1.2rem;
+      padding: 0.3rem;
+    }
+
+    @media (max-width: 760px) {
+      .navbar-links { display: none; }
+      .navbar-links.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 54px;
+        left: 0; right: 0;
+        background: rgba(20,52,32,0.97);
+        padding: 1rem;
+        gap: 0.2rem;
+        border-bottom: 1px solid var(--divider);
+      }
+      .nav-toggle { display: block; }
+    }
+
+    /* ── LANG TOGGLE ── */
+    .lang-toggle {
+      display: flex;
+      gap: 0;
+      background: rgba(20,48,32,0.85);
+      backdrop-filter: blur(8px);
+      border: 1px solid var(--divider);
+      border-radius: 2px;
+      overflow: hidden;
+      flex-shrink: 0;
+      margin-left: 0.75rem;
+    }
+    .lang-toggle button {
+      background: none;
+      border: none;
+      color: var(--cream-dim);
+      font-family: 'Jost', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.45rem 0.85rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .lang-toggle button.active {
+      background: var(--sage-dim);
+      color: var(--cream);
+    }
+    .lang-toggle button:hover:not(.active) { color: var(--cream); }
+
+    [lang-content] { display: none; }
+    body.en [lang-content="en"] { display: block; }
+    body.fr [lang-content="fr"] { display: block; }
+    body.en [lang-inline="fr"] { display: none; }
+    body.fr [lang-inline="en"] { display: none; }
+    [lang-inline] { display: inline; }
+
+    /* ── PAGE HEADER ── */
+    .page-header {
+      padding: 9rem 2rem 4rem;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--sage);
+      margin-bottom: 1.8rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--divider);
+    }
+
+    h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      line-height: 1.1;
+      margin-bottom: 1.6rem;
+    }
+
+    h2 em { font-style: italic; color: var(--gold); }
+
+    p {
+      font-size: 1rem;
+      color: var(--cream-dim);
+      max-width: 620px;
+      margin-bottom: 1.2rem;
+    }
+
+    /* ── SECTIONS ── */
+    section {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+      border-top: 1px solid var(--divider);
+    }
+
+    /* ── WHAT GRID ── */
+    .what-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      margin-top: 2.5rem;
+      border: 1px solid var(--divider);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .what-item {
+      padding: 2rem;
+      border-right: 1px solid var(--divider);
+      border-bottom: 1px solid var(--divider);
+    }
+
+    .what-item:nth-child(even) { border-right: none; }
+    .what-item:nth-last-child(-n+2) { border-bottom: none; }
+
+    .what-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.5rem;
+      font-weight: 300;
+      color: var(--sage-dim);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    .what-item h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      font-size: 1.15rem;
+      margin-bottom: 0.5rem;
+      color: var(--cream);
+    }
+
+    .what-item p {
+      font-size: 0.88rem;
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    /* ── DETAIL GRID ── */
+    .detail-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      margin-top: 2rem;
+    }
+
+    .detail-grid ul {
+      list-style: none;
+      font-size: 0.88rem;
+      color: var(--cream-dim);
+      line-height: 2;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 3rem 2rem;
+      text-align: center;
+      border-top: 1px solid var(--divider);
+      font-size: 0.75rem;
+      color: var(--sage-dim);
+      letter-spacing: 0.1em;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 640px) {
+      .what-grid { grid-template-columns: 1fr; }
+      .what-item:nth-child(even) { border-right: none; }
+      .what-item:nth-last-child(-n+2) { border-bottom: 1px solid var(--divider); }
+      .what-item:last-child { border-bottom: none; }
+      .detail-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body class="en">
+
+  <!-- ─────────────── NAVBAR ─────────────── -->
+  <nav class="navbar">
+    <a href="index.html" class="navbar-brand">Camping in Contact</a>
+    <ul class="navbar-links" id="navbar-links">
+      <li><a href="what.html"><span lang-inline="en">What to Expect</span><span lang-inline="fr">À quoi s'attendre</span></a></li>
+      <li><a href="index.html#schedule"><span lang-inline="en">Schedule</span><span lang-inline="fr">Horaire</span></a></li>
+      <li><a href="index.html#team"><span lang-inline="en">Team</span><span lang-inline="fr">Équipe</span></a></li>
+      <li><a href="index.html#pricing"><span lang-inline="en">Pricing</span><span lang-inline="fr">Tarifs</span></a></li>
+      <li><a href="index.html#contact" class="cta"><span lang-inline="en">Stay in touch</span><span lang-inline="fr">Rester informé·e</span></a></li>
+    </ul>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">☰</button>
+    <div class="lang-toggle" role="navigation" aria-label="Language">
+      <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+      <button id="btn-fr" onclick="setLang('fr')">FR</button>
+    </div>
+  </nav>
+
+  <!-- ─────────────── PAGE HEADER ─────────────── -->
+  <div class="page-header">
+    <div class="section-label">
+      <span lang-inline="en">The gathering</span>
+      <span lang-inline="fr">Le regroupement</span>
+    </div>
+
+    <div lang-content="en">
+      <h2>Slow down.<br/><em>Move together.</em></h2>
+      <p>We are delighted to welcome you to Camping in Contact, a gathering focused on connection and practices around movement and contact improvisation, in the quiet forest of La Mauricie National Park on a private, lakeside campsite. We will hold each day with a schedule that leaves room for your own personal time to swim, hike, nap, eat, journal, connect. We will dance in the grass.</p>
+    </div>
+
+    <div lang-content="fr">
+      <h2>Ralentir.<br/><em>Bouger ensemble.</em></h2>
+      <p>Nous sommes ravis de vous accueillir à Camping in Contact, un regroupement axé sur la connexion et les pratiques autour du mouvement et du Contact Improvisation, dans la forêt tranquille du Parc national de la Mauricie, sur un site de camping privé en bord de lac. Chaque journée sera tenue avec un horaire qui laisse de la place à votre temps personnel pour nager, randonner, faire la sieste, manger, écrire, vous connecter. On dansera dans l'herbe.</p>
+    </div>
+  </div>
+
+  <!-- ─────────────── WHAT'S INCLUDED ─────────────── -->
+  <section>
+    <div class="section-label">
+      <span lang-inline="en">What's included</span>
+      <span lang-inline="fr">Ce qui est inclus</span>
+    </div>
+
+    <div class="what-grid">
+      <div class="what-item">
+        <div class="what-num">5</div>
+        <h3><span lang-inline="en">Workshops</span><span lang-inline="fr">Ateliers</span></h3>
+        <p><span lang-inline="en">Led by our facilitators across the four days</span><span lang-inline="fr">Animés par nos facilitateur·ices sur quatre jours</span></p>
+      </div>
+      <div class="what-item">
+        <div class="what-num">3</div>
+        <h3>Jams</h3>
+        <p><span lang-inline="en">Open dance jams including an evening silent jam</span><span lang-inline="fr">Jams de danse incluant un jam silencieux en soirée</span></p>
+      </div>
+      <div class="what-item">
+        <div class="what-num">∞</div>
+        <h3><span lang-inline="en">Swimming &amp; trails</span><span lang-inline="fr">Baignade &amp; sentiers</span></h3>
+        <p><span lang-inline="en">Waterfront camping, lake swims, forest hikes</span><span lang-inline="fr">Camping en bord de lac, baignade, randonnées en forêt</span></p>
+      </div>
+      <div class="what-item">
+        <div class="what-num">🔥</div>
+        <h3><span lang-inline="en">Fire &amp; song</span><span lang-inline="fr">Feu &amp; chant</span></h3>
+        <p><span lang-inline="en">Evening campfire song circle and open gathering</span><span lang-inline="fr">Cercle de chansons et soirée autour du feu</span></p>
+      </div>
+    </div>
+
+    <div style="margin-top:2rem;">
+      <div class="section-label" style="margin-bottom:1rem;">
+        <span lang-inline="en">Your ticket includes</span>
+        <span lang-inline="fr">Votre billet comprend</span>
+      </div>
+      <ul style="list-style:none; font-size:0.88rem; color:var(--cream-dim); line-height:2;">
+        <li><span style="color:var(--sage); margin-right:0.5rem;">–</span><span lang-inline="en">5 workshops</span><span lang-inline="fr">5 ateliers</span></li>
+        <li><span style="color:var(--sage); margin-right:0.5rem;">–</span><span lang-inline="en">3 open jams</span><span lang-inline="fr">3 jams ouverts</span></li>
+        <li><span style="color:var(--sage); margin-right:0.5rem;">–</span><span lang-inline="en">Waterfront camping at La Clairière (BYO gear)</span><span lang-inline="fr">Camping en bord de lac à La Clairière (apportez votre équipement)</span></li>
+        <li><span style="color:var(--sage); margin-right:0.5rem;">–</span><span lang-inline="en">Daily park entry fees waived</span><span lang-inline="fr">Entrées quotidiennes au parc incluses</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ─────────────── WHAT TO BRING / ON SITE / NOT ON SITE ─────────────── -->
+  <section>
+    <div class="detail-grid">
+      <div>
+        <div class="section-label" style="margin-bottom:1rem;">
+          <span lang-inline="en">What to bring</span>
+          <span lang-inline="fr">Quoi apporter</span>
+        </div>
+        <ul>
+          <li><span style="color:var(--sage); margin-right:0.5rem;">–</span><span lang-inline="en">All personal camping gear (tents only — no RVs or vans allowed on this campsite)</span><span lang-inline="fr">Tout votre équipement de camping (tentes seulement — pas de VR ni de camionnettes)</span></li>
+          <li><span style="color:var(--sage); margin-right:0.5rem;">–</span><span lang-inline="en">Personal food &amp; cooking equipment (one fire pit + 2 wood stoves shared on site — consider a camp stove)</span><span lang-inline="fr">Nourriture personnelle &amp; matériel de cuisine (un foyer + 2 poêles à bois partagés — prévoyez un réchaud)</span></li>
+          <li><span style="color:var(--sage); margin-right:0.5rem;">–</span><span lang-inline="en">Equipment share form will be sent with your welcome email</span><span lang-inline="fr">Formulaire de partage d'équipement envoyé avec votre courriel de bienvenue</span></li>
+        </ul>
+      </div>
+      <div>
+        <div class="section-label" style="margin-bottom:1rem;">
+          <span lang-inline="en">What's on site</span>
+          <span lang-inline="fr">Sur place</span>
+        </div>
+        <ul>
+          <li><span style="color:var(--sage); margin-right:0.5rem;">–</span><span lang-inline="en">Two kitchen shelters — picnic tables, wood-burning stoves, storage cabinets</span><span lang-inline="fr">Deux abris-cuisine — tables à pique-nique, poêles à bois, armoires de rangement</span></li>
+          <li><span style="color:var(--sage); margin-right:0.5rem;">–</span><span lang-inline="en">Service building — drinking water, toilets, free showers (accessible), two outdoor sinks</span><span lang-inline="fr">Bâtiment de service — eau potable, toilettes, douches gratuites (accessibles), deux éviers extérieurs</span></li>
+        </ul>
+      </div>
+      <div>
+        <div class="section-label" style="margin-bottom:1rem;">
+          <span lang-inline="en">What's not on site</span>
+          <span lang-inline="fr">Pas sur place</span>
+        </div>
+        <ul>
+          <li><span style="color:var(--sage); margin-right:0.5rem;">–</span><span lang-inline="en">Parking — unload your gear, then park at Esker and walk back (~10–15 min)</span><span lang-inline="fr">Stationnement — déchargez, garez à l'Esker, retournez à pied (~10–15 min)</span></li>
+          <li><span style="color:var(--sage); margin-right:0.5rem;">–</span><span lang-inline="en">Cell service (almost none at La Clairière)</span><span lang-inline="fr">Service cellulaire (presque inexistant à La Clairière)</span></li>
+          <li><span style="color:var(--sage); margin-right:0.5rem;">–</span><span lang-inline="en">Ice — nearest source is Mistagance Campground, 9 min from Esker parking</span><span lang-inline="fr">Glace — la plus proche : camping Mistagance, 9 min du stationnement de l'Esker</span></li>
+          <li><span style="color:var(--sage); margin-right:0.5rem;">–</span><span lang-inline="en">Rideshare details in your welcome email</span><span lang-inline="fr">Covoiturage : détails dans votre courriel de bienvenue</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────── FOOTER ─────────────── -->
+  <footer>
+    <p>Camping in Contact · Sept 1–4, 2026 · Parc national de la Mauricie · Québec</p>
+    <p style="margin-top:0.5rem; font-size:0.65rem; opacity:0.5;">
+      <span lang-inline="en">A substance-free, inclusive gathering. All levels welcome.</span>
+      <span lang-inline="fr">Un rassemblement sans substance, inclusif. Tous niveaux bienvenus.</span>
+    </p>
+  </footer>
+
+  <script>
+    function setLang(lang) {
+      document.body.className = lang;
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+      document.getElementById('btn-fr').classList.toggle('active', lang === 'fr');
+    }
+
+    const browserLang = navigator.language.startsWith('fr') ? 'fr' : 'en';
+    setLang(browserLang);
+
+    document.getElementById('nav-toggle').addEventListener('click', () => {
+      document.getElementById('navbar-links').classList.toggle('open');
+    });
+    document.querySelectorAll('.navbar-links a').forEach(a => {
+      a.addEventListener('click', () => document.getElementById('navbar-links').classList.remove('open'));
+    });
+  </script>
+</body>
+</html>
