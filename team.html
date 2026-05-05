@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meet the Team · Camping in Contact</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg: #1e3a28;
+      --bg2: #172e20;
+      --cream: #f5edd8;
+      --cream-dim: #c2b89a;
+      --gold: #d4a853;
+      --terra: #c4622d;
+      --sage: #7ab88a;
+      --sage-dim: #2e5a3c;
+      --divider: rgba(122,184,138,0.2);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--cream);
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ── NAVBAR ── */
+    .navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 99;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2rem;
+      height: 54px;
+      background: rgba(20, 52, 32, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--divider);
+    }
+
+    .navbar-brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--cream);
+      text-decoration: none;
+      white-space: nowrap;
+      letter-spacing: 0.03em;
+    }
+
+    .navbar-links {
+      display: flex;
+      align-items: center;
+      gap: 0.2rem;
+      list-style: none;
+    }
+
+    .navbar-links a {
+      color: var(--cream-dim);
+      text-decoration: none;
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.4rem 0.7rem;
+      border-radius: 2px;
+      transition: color 0.2s;
+      white-space: nowrap;
+    }
+
+    .navbar-links a:hover { color: var(--cream); }
+
+    .navbar-links a.cta {
+      border: 1px solid rgba(212,168,83,0.5);
+      color: var(--gold);
+    }
+    .navbar-links a.cta:hover { background: var(--gold); color: var(--bg); }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--cream);
+      cursor: pointer;
+      font-size: 1.2rem;
+      padding: 0.3rem;
+    }
+
+    @media (max-width: 760px) {
+      .navbar-links { display: none; }
+      .navbar-links.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 54px; left: 0; right: 0;
+        background: rgba(20,52,32,0.97);
+        padding: 1rem;
+        gap: 0.2rem;
+        border-bottom: 1px solid var(--divider);
+      }
+      .nav-toggle { display: block; }
+    }
+
+    /* ── LANG ── */
+    .lang-toggle {
+      display: flex;
+      background: rgba(20,48,32,0.85);
+      backdrop-filter: blur(8px);
+      border: 1px solid var(--divider);
+      border-radius: 2px;
+      overflow: hidden;
+      flex-shrink: 0;
+      margin-left: 0.75rem;
+    }
+    .lang-toggle button {
+      background: none;
+      border: none;
+      color: var(--cream-dim);
+      font-family: 'Jost', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.45rem 0.85rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .lang-toggle button.active { background: var(--sage-dim); color: var(--cream); }
+    .lang-toggle button:hover:not(.active) { color: var(--cream); }
+
+    [lang-content] { display: none; }
+    body.en [lang-content="en"] { display: block; }
+    body.fr [lang-content="fr"] { display: block; }
+    body.en [lang-inline="fr"] { display: none; }
+    body.fr [lang-inline="en"] { display: none; }
+    [lang-inline] { display: inline; }
+
+    /* ── PAGE HEADER ── */
+    .page-header {
+      padding: 9rem 2rem 4rem;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--sage);
+      margin-bottom: 1.8rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--divider);
+    }
+
+    h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      line-height: 1.1;
+      margin-bottom: 1.6rem;
+    }
+    h2 em { font-style: italic; color: var(--gold); }
+
+    p {
+      font-size: 1rem;
+      color: var(--cream-dim);
+      max-width: 620px;
+      margin-bottom: 1.2rem;
+    }
+
+    /* ── TEAM CARDS ── */
+    .team-list {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 2rem 5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+    }
+
+    .member {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 2rem;
+      border: 1px solid var(--divider);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .member img {
+      width: 100%;
+      height: 100%;
+      min-height: 240px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .member-bio {
+      padding: 2rem;
+    }
+
+    .member-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 400;
+      color: var(--cream);
+      margin-bottom: 0.2rem;
+    }
+
+    .member-role {
+      font-size: 0.75rem;
+      color: var(--sage);
+      letter-spacing: 0.08em;
+      margin-bottom: 1.2rem;
+    }
+
+    .member-bio p {
+      font-size: 0.86rem;
+      line-height: 1.75;
+      max-width: none;
+    }
+
+    @media (max-width: 640px) {
+      .member { grid-template-columns: 1fr; }
+      .member img { min-height: 260px; max-height: 360px; }
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 3rem 2rem;
+      text-align: center;
+      border-top: 1px solid var(--divider);
+      font-size: 0.75rem;
+      color: var(--sage-dim);
+      letter-spacing: 0.1em;
+    }
+  </style>
+</head>
+<body class="en">
+
+  <!-- ─────────────── NAVBAR ─────────────── -->
+  <nav class="navbar">
+    <a href="index.html" class="navbar-brand">Camping in Contact</a>
+    <ul class="navbar-links" id="navbar-links">
+      <li><a href="what.html"><span lang-inline="en">What to Expect</span><span lang-inline="fr">À quoi s'attendre</span></a></li>
+      <li><a href="index.html#schedule"><span lang-inline="en">Schedule</span><span lang-inline="fr">Horaire</span></a></li>
+      <li><a href="team.html"><span lang-inline="en">Team</span><span lang-inline="fr">Équipe</span></a></li>
+      <li><a href="index.html#pricing"><span lang-inline="en">Pricing</span><span lang-inline="fr">Tarifs</span></a></li>
+      <li><a href="index.html#contact" class="cta"><span lang-inline="en">Register</span><span lang-inline="fr">S'inscrire</span></a></li>
+    </ul>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">☰</button>
+    <div class="lang-toggle" role="navigation" aria-label="Language">
+      <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+      <button id="btn-fr" onclick="setLang('fr')">FR</button>
+    </div>
+  </nav>
+
+  <!-- ─────────────── PAGE HEADER ─────────────── -->
+  <div class="page-header">
+    <div class="section-label">
+      <span lang-inline="en">The team</span>
+      <span lang-inline="fr">L'équipe</span>
+    </div>
+
+    <div lang-content="en">
+      <h2>Held by<br/><em>these hands.</em></h2>
+      <p>The gathering is organized and facilitated by a small, committed team rooted in CI practice.</p>
+    </div>
+
+    <div lang-content="fr">
+      <h2>Porté par<br/><em>ces mains.</em></h2>
+      <p>Le regroupement est organisé et facilité par une petite équipe engagée, ancrée dans la pratique du CI.</p>
+    </div>
+  </div>
+
+  <!-- ─────────────── TEAM ─────────────── -->
+  <div class="team-list">
+
+    <div class="member">
+      <img src="VictoriaCIC.jpg" alt="Victoria Emilie Hill" />
+      <div class="member-bio">
+        <div class="member-name">Victoria Emilie Hill</div>
+        <div class="member-role">she/they · <span lang-inline="en">Organizer · Facilitator</span><span lang-inline="fr">Organisatrice · Facilitateur·ice</span></div>
+        <div lang-content="en"><p>Victoria is a queer creator, mover, facilitator, writer, event producer, and actor originally from Treaty 1 Territory, now living in Montreal. She is passionate about work that focuses on movement and the body as a place we hold and tell stories. Victoria holds a BA Honours in Theatre (Acting) with a double major in Politics. They have trained in Viewpoints, Grotowski, Suzuki, and CI, and have participated in a residency at Arts Letters &amp; Numbers in New York. They are currently studying somatic psychotherapy. <em>Sidequest: being in alignment with her boundaries and practicing how to say what is true with precision and care.</em></p></div>
+        <div lang-content="fr"><p>Victoria est une créatrice, danseuse, facilitatrice, écrivaine, productrice et actrice queer, originaire du Territoire du Traité 1, maintenant basée à Montréal. Elle est passionnée par le travail qui place le mouvement et le corps au coeur du récit. Victoria a un BA avec mention en Théâtre (jeu) avec une double majeure en Science politique. Elle a pratiqué les Viewpoints, Grotowski, Suzuki et le CI, et a participé à une résidence à Arts Letters &amp; Numbers à New York. Elle étudie actuellement la psychothérapie somatique. <em>Quête secondaire : être en alignement avec ses limites et pratiquer l'art de dire ce qui est vrai avec précision et soin.</em></p></div>
+      </div>
+    </div>
+
+    <div class="member">
+      <img src="SophieCIC.jpg" alt="Sophie Bijjani" />
+      <div class="member-bio">
+        <div class="member-name">Sophie Bijjani</div>
+        <div class="member-role">she/her · <span lang-inline="en">Organizer · Facilitator</span><span lang-inline="fr">Organisatrice · Facilitateur·ice</span></div>
+        <div lang-content="en"><p>Sophie is a nomadic artist and musician returning to her homeland of Quebec, currently based in Montreal after seven years of travel. Her path has been shaped by deep exploration of alternative communities, systems of living, and practices rooted in shadow work and energy work. With a background in jazz music and circle song, Sophie approaches creation as a communal and intuitive act, seeking coherence within the chaos she perceives in the world. She is drawn to rivers — especially those that can be swum in, even better if drinkable — and to practices that bring the body into aliveness. <em>Sidequest: with conviction and curiosity, to understand how to be happy without needing to be right.</em></p></div>
+        <div lang-content="fr"><p>Sophie est une artiste nomade et musicienne qui retourne dans sa terre natale du Québec, actuellement basée à Montréal après sept ans de voyage. Son chemin a été façonné par une exploration profonde des communautés alternatives, des systèmes de vie, et des pratiques enracinées dans le travail d'ombre et d'énergie. Avec un bagage en musique jazz et en chant en cercle, Sophie aborde la création comme un acte communautaire et intuitif. Elle est attirée par les rivières — surtout celles où l'on peut nager, encore mieux si elles sont potables — et par les pratiques qui ramènent le corps à la vivacité. <em>Quête secondaire : avec conviction et curiosité, comprendre comment être heureuse sans avoir besoin d'avoir raison.</em></p></div>
+      </div>
+    </div>
+
+    <div class="member">
+      <img src="AndreaCIC.jpg" alt="Andrea Muniz" />
+      <div class="member-bio">
+        <div class="member-name">Andrea Muniz</div>
+        <div class="member-role"><span lang-inline="en">Organizer · Facilitator</span><span lang-inline="fr">Organisatrice · Facilitateur·ice</span></div>
+        <div lang-content="en"><p>Andrea is a queer dancer, choreographer, and performer originally from Puerto Rico, now based in Montreal. She trained at The Boston Conservatory, focusing on contemporary dance performance with an emphasis on choreography and improvisation. Her artistic work is rooted in a desire for clarity, efficiency, and presence — stripping away excess to arrive at movement that is intentional and alive. A city lover with a deep affinity for sun and ocean, she balances her tropical origins with northern winters through saunas and embodied practice. Her current inquiries revolve around releasing ego and expectations in performance. <em>Sidequest: developing a deeper understanding of her relationship to anger.</em></p></div>
+        <div lang-content="fr"><p>Andrea est une danseuse, chorégraphe et performeuse queer originaire de Porto Rico, maintenant basée à Montréal. Elle a étudié au Boston Conservatory, avec un accent sur la performance en danse contemporaine, la chorégraphie et l'improvisation. Son travail artistique est enraciné dans un désir de clarté, d'efficacité et de présence — éliminer l'excès pour arriver à un mouvement intentionnel et vivant. Amoureuse des villes avec une affinité profonde pour le soleil et l'océan, elle équilibre ses origines tropicales avec les hivers nordiques grâce aux saunas et à la pratique incarnée. <em>Quête secondaire : développer une compréhension plus profonde de son rapport à la colère.</em></p></div>
+      </div>
+    </div>
+
+    <div class="member">
+      <img src="MingCIC.jpg" alt="Ming Tsai" />
+      <div class="member-bio">
+        <div class="member-name">Ming Tsai</div>
+        <div class="member-role"><span lang-inline="en">Facilitator</span><span lang-inline="fr">Facilitateur·ice</span></div>
+        <div lang-content="en"><p>Ming Tsai is a dancer and multidisciplinary artist living in Montreal. He was first introduced to Contact Improvisation in 2018, began facilitating jams in Montreal in 2021, and started offering classes in 2022. He has taught at the California CI Teacher Exchange, the Georgia Silence Jam, and held the role of Host and teacher at the Falling Leaf Jam at Earthdance. He hopes to give newcomers the fundamental tools to explore, play, and dance in jams around the world.</p></div>
+        <div lang-content="fr"><p>Ming Tsai est danseur et artiste multidisciplinaire basé à Montréal. Il découvre le Contact Improvisation en 2018, commence à animer des jams à Montréal en 2021, et à offrir des cours en 2022. Il a enseigné au California CI Teacher Exchange, au Georgia Silence Jam, et a été hôte et enseignant au Falling Leaf Jam à Earthdance. Il souhaite offrir aux nouveaux·elles venu·es les outils fondamentaux pour explorer, jouer et danser dans des jams partout dans le monde.</p></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ─────────────── FOOTER ─────────────── -->
+  <footer>
+    <p>Camping in Contact · Sept 1–4, 2026 · Parc national de la Mauricie · Québec</p>
+    <p style="margin-top:0.5rem; font-size:0.65rem; opacity:0.5;">
+      <span lang-inline="en">A substance-free, inclusive gathering. All levels welcome.</span>
+      <span lang-inline="fr">Un rassemblement sans substance, inclusif. Tous niveaux bienvenus.</span>
+    </p>
+  </footer>
+
+  <script>
+    function setLang(lang) {
+      document.body.className = lang;
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+      document.getElementById('btn-fr').classList.toggle('active', lang === 'fr');
+    }
+
+    const browserLang = navigator.language.startsWith('fr') ? 'fr' : 'en';
+    setLang(browserLang);
+
+    document.getElementById('nav-toggle').addEventListener('click', () => {
+      document.getElementById('navbar-links').classList.toggle('open');
+    });
+    document.querySelectorAll('.navbar-links a').forEach(a => {
+      a.addEventListener('click', () => document.getElementById('navbar-links').classList.remove('open'));
+    });
+  </script>
+</body>
+</html>
