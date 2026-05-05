@@ -612,6 +612,9 @@
     /* ── FOOTER ── */
     footer {
       padding: 3rem 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       text-align: center;
       border-top: 1px solid var(--divider);
       font-size: 0.75rem;
@@ -714,15 +717,15 @@
     /* ── HERO DATE ── */
     .hero-date {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(1.5rem, 4.5vw, 2.8rem);
-      font-weight: 600;
-      color: var(--bg);
-      background: var(--gold);
-      letter-spacing: 0.08em;
-      padding: 0.35rem 2rem;
+      font-size: clamp(1.6rem, 4vw, 2.6rem);
+      font-weight: 300;
+      color: var(--gold);
+      border: 1px solid rgba(212,168,83,0.6);
+      letter-spacing: 0.1em;
+      padding: 0.4rem 2.4rem;
       border-radius: 2px;
-      margin-bottom: 2rem;
-      animation: fadeUp 1s ease both;
+      margin-top: 1.5rem;
+      animation: fadeUp 1s 0.5s ease both;
     }
 
     .len, .lfr { display: none; }
@@ -752,7 +755,9 @@
 
   <!-- ─────────────── HERO ─────────────── -->
   <header class="hero">
-    <div class="hero-date">September 1–4, 2026</div>
+    <div class="hero-label" style="margin-bottom:2rem; animation: fadeUp 1s ease both;">
+      Parc national de la Mauricie · Lac Wapizagonke
+    </div>
 
     <h1>Camping<br/><em>in Contact</em></h1>
 
@@ -761,9 +766,7 @@
       <span lang-inline="fr">Rassembler les gens et les pratiques autour du Contact Improvisation</span>
     </p>
 
-    <div class="hero-label" style="margin-top:1rem; animation: fadeUp 1s 0.5s ease both;">
-      Parc national de la Mauricie · Lac Wapizagonke
-    </div>
+    <div class="hero-date">September 1–4, 2026</div>
   </header>
 
   <!-- ─────────────── WHAT IT IS ─────────────── -->
@@ -1009,11 +1012,39 @@
         <p>Laissez vos coordonnées ci-dessous et vous serez la première personne informée à l'ouverture des places. Les billets Believers iront à cette liste en priorité.</p>
       </div>
 
-      <div style="margin-top:2.5rem;">
-        <a href="#" class="submit-btn" style="display:inline-block; text-decoration:none;">
-          <span lang-inline="en">Register →</span>
-          <span lang-inline="fr">S'inscrire →</span>
-        </a>
+      <form id="interest-form" action="https://formspree.io/f/maqakjnn" method="POST">
+        <div class="form-row">
+          <div class="field">
+            <label for="name">
+              <span lang-inline="en">Name</span>
+              <span lang-inline="fr">Nom</span>
+            </label>
+            <input type="text" id="name" name="name"
+              placeholder="Your name / Votre nom" />
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required
+              placeholder="your@email.com" />
+          </div>
+        </div>
+
+        <input type="hidden" name="_subject" value="Camping in Contact – Interest List" />
+
+        <button type="submit" class="submit-btn">
+          <span lang-inline="en">Join the interest list →</span>
+          <span lang-inline="fr">Rejoindre la liste d'intérêt →</span>
+        </button>
+
+        <p class="form-note">
+          <span lang-inline="en">No spam. We'll email you when registration opens June 5 — Believers tickets go to this list first.</span>
+          <span lang-inline="fr">Pas de spam. On vous écrit à l'ouverture des inscriptions le 5 juin — les billets Believers vont à cette liste en priorité.</span>
+        </p>
+      </form>
+
+      <div class="success-msg" id="success-msg">
+        <span lang-inline="en">You're on the list. See you by the lake.</span>
+        <span lang-inline="fr">Vous êtes sur la liste. À bientôt au bord du lac.</span>
       </div>
     </section>
   </div>
