@@ -389,9 +389,11 @@
       document.body.className = lang;
       document.getElementById('btn-en').classList.toggle('active', lang === 'en');
       document.getElementById('btn-fr').classList.toggle('active', lang === 'fr');
+      localStorage.setItem('cic-lang', lang);
     }
+    const savedLang = localStorage.getItem('cic-lang');
     const browserLang = navigator.language.startsWith('fr') ? 'fr' : 'en';
-    setLang(browserLang);
+    setLang(savedLang || browserLang);
     document.getElementById('nav-toggle').addEventListener('click', () => {
       document.getElementById('navbar-links').classList.toggle('open');
     });
