@@ -321,6 +321,98 @@
       color: var(--bg);
     }
 
+    /* ── FORM ── */
+    .form-section {
+      background: var(--bg2);
+      border-top: 1px solid var(--divider);
+      border-bottom: 1px solid var(--divider);
+    }
+
+    form {
+      margin-top: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    label {
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--sage);
+    }
+
+    input {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--divider);
+      border-radius: 2px;
+      padding: 0.85rem 1rem;
+      color: var(--cream);
+      font-family: 'Jost', sans-serif;
+      font-size: 0.92rem;
+      font-weight: 300;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    input::placeholder { color: rgba(194,185,168,0.3); }
+    input:focus { border-color: var(--sage); }
+
+    .submit-btn {
+      align-self: flex-start;
+      background: none;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      font-family: 'Jost', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 0.9rem 2.2rem;
+      cursor: pointer;
+      border-radius: 2px;
+      transition: all 0.2s;
+      margin-top: 0.5rem;
+    }
+
+    .submit-btn:hover { background: var(--gold); color: var(--bg); }
+
+    .form-note {
+      font-size: 0.78rem;
+      color: var(--cream-dim);
+      font-style: italic;
+      opacity: 0.7;
+    }
+
+    .success-msg {
+      display: none;
+      padding: 1.5rem;
+      border: 1px solid var(--sage);
+      border-radius: 2px;
+      color: var(--sage);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-style: italic;
+      text-align: center;
+      margin-top: 1rem;
+    }
+
+    @media (max-width: 640px) {
+      .form-row { grid-template-columns: 1fr; }
+    }
+
     /* ── FOOTER ── */
     footer {
       padding: 3rem 2rem;
@@ -387,8 +479,8 @@
         <div class="tier-name">Believers</div>
         <div class="tier-price">$98<span> – $180</span></div>
         <p class="tier-desc">
-          <span lang-inline="en">You're in before anyone else. This tier goes to our interest list first, choose what you can within the range and know that your early trust carries us forward.</span>
-          <span lang-inline="fr">Vous êtes là avant tout le monde. Ce tarif va d'abord à notre liste d'intérêt, choisissez ce que vous pouvez dans la fourchette et sachez que votre confiance hâtive nous porte.</span>
+          <span lang-inline="en">You're in before anyone else. Choose what you can within the range and know that your early trust carries us forward.</span>
+          <span lang-inline="fr">Vous êtes là avant tout le monde. Choisissez ce que vous pouvez dans la fourchette et sachez que votre confiance hâtive nous porte.</span>
         </p>
       </div>
 
@@ -397,8 +489,8 @@
         <div class="tier-name"><span lang-inline="en">Early Bird</span><span lang-inline="fr">Hâtif</span></div>
         <div class="tier-price">$120<span> – $180</span></div>
         <p class="tier-desc">
-          <span lang-inline="en">Available until July 31 or until the 15 spots are filled, whichever comes first. Register early and save.</span>
-          <span lang-inline="fr">Disponible jusqu'au 31 juillet ou jusqu'à ce que les 15 places soient comblées, selon ce qui arrive en premier. Inscrivez-vous tôt et économisez.</span>
+          <span lang-inline="en">Available until July 31 or until the 15 spots are filled, whichever comes first.</span>
+          <span lang-inline="fr">Disponible jusqu'au 31 juillet ou jusqu'à ce que les 15 places soient comblées, selon ce qui arrive en premier.</span>
         </p>
         <div class="tier-avail">
           <span lang-inline="en">Until July 31</span>
@@ -407,20 +499,24 @@
       </div>
 
       <div class="tier">
-        <div class="tier-badge"><span lang-inline="en">30 tickets</span><span lang-inline="fr">30 billets</span></div>
+        <div class="tier-badge"><span lang-inline="en">27 tickets</span><span lang-inline="fr">27 billets</span></div>
         <div class="tier-name">Regular</div>
         <div class="tier-price">$150<span> – $180</span></div>
         <p class="tier-desc">
-          <span lang-inline="en">Available August 1 through August 25. Choose the amount that reflects your means.</span>
-          <span lang-inline="fr">Disponible du 1er août au 25 août. Choisissez le montant qui reflète vos moyens.</span>
+          <span lang-inline="en">Available until August 25. Choose the amount that reflects your means.</span>
+          <span lang-inline="fr">Disponible jusqu'au 25 août. Choisissez le montant qui reflète vos moyens.</span>
         </p>
         <div class="tier-avail">
-          <span lang-inline="en">Aug 1 – Aug 25</span>
-          <span lang-inline="fr">1er août – 25 août</span>
+          <span lang-inline="en">Until Aug 25</span>
+          <span lang-inline="fr">Jusqu'au 25 août</span>
         </div>
       </div>
 
     </div>
+    <p style="margin-top:1.5rem; font-size:0.88rem; color:var(--cream-dim); font-style:italic;">
+      <span lang-inline="en">Children are Pay What You Can.</span>
+      <span lang-inline="fr">Les enfants sont à prix libre.</span>
+    </p>
   </section>
 
   <!-- ─────────────── WHAT'S INCLUDED ─────────────── -->
@@ -471,15 +567,13 @@
     </div>
 
     <div lang-content="en">
-      <h2>No one turned<br/><em>away for price.</em></h2>
-      <p>If cost is a genuine barrier, reach out when you register. We'd rather make it work than have you miss it.</p>
-      <p>Kids are welcome. <a href="index.html#contact" style="color:var(--sage); text-decoration:none; border-bottom:1px solid var(--divider);">Contact us when registering</a> to talk logistics.</p>
+      <h2>If cost is a barrier,<br/><em>please reach out to us.</em></h2>
+      <p>We'd rather make it work than have you miss it.</p>
     </div>
 
     <div lang-content="fr">
-      <h2>Personne exclu·e<br/><em>pour raisons financières.</em></h2>
-      <p>Si le coût est un vrai obstacle, contactez-nous lors de votre inscription. On préfère trouver un arrangement plutôt que vous voir manquer cet événement.</p>
-      <p>Les enfants sont les bienvenu·es. <a href="index.html#contact" style="color:var(--sage); text-decoration:none; border-bottom:1px solid var(--divider);">Contactez-nous lors de votre inscription</a> pour discuter de la logistique.</p>
+      <h2>Si le coût est un obstacle,<br/><em>contactez-nous.</em></h2>
+      <p>On préfère trouver un arrangement plutôt que vous voir manquer cet événement.</p>
     </div>
 
     <div class="cta-wrap">
@@ -489,6 +583,59 @@
       </a>
     </div>
   </section>
+
+  <!-- ─────────────── REGISTER ─────────────── -->
+  <div class="form-section">
+    <section>
+      <div class="section-label">
+        <span lang-inline="en">Register</span>
+        <span lang-inline="fr">S'inscrire</span>
+      </div>
+
+      <div lang-content="en">
+        <h2>Registration opens<br/><em>June 5, 2026.</em></h2>
+        <p>Leave your info below to be added to our mailing list and you'll be the first to know when registration goes live.</p>
+      </div>
+
+      <div lang-content="fr">
+        <h2>Les inscriptions ouvrent<br/><em>le 5 juin 2026.</em></h2>
+        <p>Laissez vos coordonnées ci-dessous et vous serez la première à savoir quand les inscriptions seront ouvertes.</p>
+      </div>
+
+      <form id="interest-form-pricing" action="https://formspree.io/f/maqakjnn" method="POST">
+        <div class="form-row">
+          <div class="field">
+            <label for="name-p">
+              <span lang-inline="en">Name</span>
+              <span lang-inline="fr">Nom</span>
+            </label>
+            <input type="text" id="name-p" name="name" placeholder="Your name / Votre nom" />
+          </div>
+          <div class="field">
+            <label for="email-p">Email</label>
+            <input type="email" id="email-p" name="email" required placeholder="your@email.com" />
+          </div>
+        </div>
+
+        <input type="hidden" name="_subject" value="Camping in Contact – Interest List" />
+
+        <button type="submit" class="submit-btn">
+          <span lang-inline="en">Join the mailing list →</span>
+          <span lang-inline="fr">Rejoindre la liste de diffusion →</span>
+        </button>
+
+        <p class="form-note">
+          <span lang-inline="en">No spam. You'll hear from us when registration opens.</span>
+          <span lang-inline="fr">Pas de spam. On vous écrit à l'ouverture des inscriptions.</span>
+        </p>
+      </form>
+
+      <div class="success-msg" id="success-msg-pricing">
+        <span lang-inline="en">You're on the list. See you by the lake.</span>
+        <span lang-inline="fr">Vous êtes sur la liste. À bientôt au bord du lac.</span>
+      </div>
+    </section>
+  </div>
 
   <!-- ─────────────── FOOTER ─────────────── -->
   <footer>
@@ -511,6 +658,17 @@
     document.querySelectorAll('.navbar-links a').forEach(a => {
       a.addEventListener('click', () => document.getElementById('navbar-links').classList.remove('open'));
     });
+
+    const pricingForm = document.getElementById('interest-form-pricing');
+    if (pricingForm) {
+      pricingForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const data = new FormData(pricingForm);
+        await fetch(pricingForm.action, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } });
+        pricingForm.style.display = 'none';
+        document.getElementById('success-msg-pricing').style.display = 'block';
+      });
+    }
   </script>
 </body>
 </html>
