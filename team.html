@@ -33,7 +33,7 @@
       overflow-x: hidden;
     }
 
-    /* ── NAVBAR ── */
+        /* ── NAVBAR ── */
     .navbar {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -85,6 +85,8 @@
     }
     .navbar-links a.cta:hover { background: var(--gold); color: var(--bg); }
 
+    .nav-cta-item { margin-left: 1.2rem; padding-left: 1.2rem; border-left: 1px solid rgba(122,184,138,0.35); }
+
     .nav-toggle {
       display: none;
       background: none;
@@ -110,7 +112,7 @@
       .nav-toggle { display: block; }
     }
 
-    /* ── LANG ── */
+        /* ── LANG ── */
     .lang-toggle {
       display: flex;
       background: rgba(20,48,32,0.85);
@@ -259,15 +261,15 @@
   <!-- ─────────────── NAVBAR ─────────────── -->
   <nav class="navbar">
     <a href="index.html" class="navbar-brand">Camping in Contact</a>
-    <ul class="navbar-links" id="navbar-links">
+        <ul class="navbar-links" id="navbar-links">
       <li><a href="what.html"><span lang-inline="en">What to Expect</span><span lang-inline="fr">À quoi s'attendre</span></a></li>
       <li><a href="packing.html"><span lang-inline="en">Packing List</span><span lang-inline="fr">Liste d'emballage</span></a></li>
       <li><a href="index.html#schedule"><span lang-inline="en">Schedule</span><span lang-inline="fr">Horaire</span></a></li>
       <li><a href="team.html"><span lang-inline="en">Team</span><span lang-inline="fr">Équipe</span></a></li>
       <li><a href="pricing.html"><span lang-inline="en">Pricing</span><span lang-inline="fr">Tarifs</span></a></li>
-      <li style="margin-left:1.8rem; padding-left:1.8rem; border-left:1px solid var(--divider);"><a href="index.html#contact" class="cta"><span lang-inline="en">Register</span><span lang-inline="fr">S'inscrire</span></a></li>
+      <li class="nav-cta-item"><a href="index.html#contact" class="cta"><span lang-inline="en">Register</span><span lang-inline="fr">S'inscrire</span></a></li>
     </ul>
-    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">☰</button>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">☰</button>
     <div class="lang-toggle" role="navigation" aria-label="Language">
       <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
       <button id="btn-fr" onclick="setLang('fr')">FR</button>
