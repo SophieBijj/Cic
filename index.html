@@ -354,6 +354,44 @@
       border-bottom: 1px solid var(--divider);
     }
 
+    /* ── SCHEDULE PREVIEW OVERLAY ──
+       To publish the full schedule: remove class "schedule-preview" from the div below the TUESDAY comment.
+    ── */
+    .sched-wrap {
+      position: relative;
+    }
+    .sched-wrap.schedule-preview .cal {
+      filter: blur(4px);
+      pointer-events: none;
+      user-select: none;
+    }
+    .sched-coming {
+      display: none;
+      position: absolute;
+      inset: 0;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 0.6rem;
+      text-align: center;
+      z-index: 2;
+    }
+    .schedule-preview .sched-coming { display: flex; }
+    .sched-coming-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-weight: 300;
+      color: var(--cream);
+      letter-spacing: 0.04em;
+    }
+    .sched-coming-title em { font-style: italic; color: var(--gold); }
+    .sched-coming-sub {
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--sage);
+    }
+
     .days {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -828,6 +866,12 @@
       </div>
 
       <div class="sched">
+        <!-- To publish schedule: remove "schedule-preview" from the class below -->
+        <div class="sched-wrap schedule-preview">
+          <div class="sched-coming">
+            <div class="sched-coming-title">Full schedule<br/><em>coming soon.</em></div>
+            <div class="sched-coming-sub">Stay tuned for details</div>
+          </div>
         <div class="cal">
 
           <!-- HEADERS -->
@@ -939,6 +983,7 @@
           </div>
 
         </div>
+        </div><!-- /sched-wrap -->
 
       </div>
     </section>
