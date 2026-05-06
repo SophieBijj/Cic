@@ -321,6 +321,98 @@
       color: var(--bg);
     }
 
+    /* ── FORM ── */
+    .form-section {
+      background: var(--bg2);
+      border-top: 1px solid var(--divider);
+      border-bottom: 1px solid var(--divider);
+    }
+
+    form {
+      margin-top: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    label {
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--sage);
+    }
+
+    input {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--divider);
+      border-radius: 2px;
+      padding: 0.85rem 1rem;
+      color: var(--cream);
+      font-family: 'Jost', sans-serif;
+      font-size: 0.92rem;
+      font-weight: 300;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    input::placeholder { color: rgba(194,185,168,0.3); }
+    input:focus { border-color: var(--sage); }
+
+    .submit-btn {
+      align-self: flex-start;
+      background: none;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      font-family: 'Jost', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 0.9rem 2.2rem;
+      cursor: pointer;
+      border-radius: 2px;
+      transition: all 0.2s;
+      margin-top: 0.5rem;
+    }
+
+    .submit-btn:hover { background: var(--gold); color: var(--bg); }
+
+    .form-note {
+      font-size: 0.78rem;
+      color: var(--cream-dim);
+      font-style: italic;
+      opacity: 0.7;
+    }
+
+    .success-msg {
+      display: none;
+      padding: 1.5rem;
+      border: 1px solid var(--sage);
+      border-radius: 2px;
+      color: var(--sage);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-style: italic;
+      text-align: center;
+      margin-top: 1rem;
+    }
+
+    @media (max-width: 640px) {
+      .form-row { grid-template-columns: 1fr; }
+    }
+
     /* ── FOOTER ── */
     footer {
       padding: 3rem 2rem;
@@ -492,6 +584,59 @@
     </div>
   </section>
 
+  <!-- ─────────────── REGISTER ─────────────── -->
+  <div class="form-section">
+    <section>
+      <div class="section-label">
+        <span lang-inline="en">Register</span>
+        <span lang-inline="fr">S'inscrire</span>
+      </div>
+
+      <div lang-content="en">
+        <h2>Registration opens<br/><em>June 5, 2026.</em></h2>
+        <p>Leave your info below to be added to our mailing list and you'll be the first to know when registration goes live.</p>
+      </div>
+
+      <div lang-content="fr">
+        <h2>Les inscriptions ouvrent<br/><em>le 5 juin 2026.</em></h2>
+        <p>Laissez vos coordonnées ci-dessous et vous serez la première à savoir quand les inscriptions seront ouvertes.</p>
+      </div>
+
+      <form id="interest-form-pricing" action="https://formspree.io/f/maqakjnn" method="POST">
+        <div class="form-row">
+          <div class="field">
+            <label for="name-p">
+              <span lang-inline="en">Name</span>
+              <span lang-inline="fr">Nom</span>
+            </label>
+            <input type="text" id="name-p" name="name" placeholder="Your name / Votre nom" />
+          </div>
+          <div class="field">
+            <label for="email-p">Email</label>
+            <input type="email" id="email-p" name="email" required placeholder="your@email.com" />
+          </div>
+        </div>
+
+        <input type="hidden" name="_subject" value="Camping in Contact – Interest List" />
+
+        <button type="submit" class="submit-btn">
+          <span lang-inline="en">Join the mailing list →</span>
+          <span lang-inline="fr">Rejoindre la liste de diffusion →</span>
+        </button>
+
+        <p class="form-note">
+          <span lang-inline="en">No spam. You'll hear from us when registration opens.</span>
+          <span lang-inline="fr">Pas de spam. On vous écrit à l'ouverture des inscriptions.</span>
+        </p>
+      </form>
+
+      <div class="success-msg" id="success-msg-pricing">
+        <span lang-inline="en">You're on the list. See you by the lake.</span>
+        <span lang-inline="fr">Vous êtes sur la liste. À bientôt au bord du lac.</span>
+      </div>
+    </section>
+  </div>
+
   <!-- ─────────────── FOOTER ─────────────── -->
   <footer>
     <p>Camping in Contact · Sept 1–4, 2026 · Parc national de la Mauricie · Québec</p>
@@ -513,6 +658,17 @@
     document.querySelectorAll('.navbar-links a').forEach(a => {
       a.addEventListener('click', () => document.getElementById('navbar-links').classList.remove('open'));
     });
+
+    const pricingForm = document.getElementById('interest-form-pricing');
+    if (pricingForm) {
+      pricingForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const data = new FormData(pricingForm);
+        await fetch(pricingForm.action, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } });
+        pricingForm.style.display = 'none';
+        document.getElementById('success-msg-pricing').style.display = 'block';
+      });
+    }
   </script>
 </body>
 </html>
