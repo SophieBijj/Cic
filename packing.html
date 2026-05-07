@@ -56,6 +56,7 @@
       white-space: nowrap;
       letter-spacing: 0.03em;
     }
+    .navbar-brand em { font-style: italic; color: var(--gold); }
 
     .navbar-links {
       display: flex;
@@ -233,10 +234,10 @@
 <body class="en">
 
   <nav class="navbar">
-    <a href="index.html" class="navbar-brand">Camping in Contact</a>
+    <a href="index.html" class="navbar-brand">Camping <em>in Contact</em></a>
     <ul class="navbar-links" id="navbar-links">
       <li><a href="what.html"><span lang-inline="en">What to Expect</span><span lang-inline="fr">À quoi s'attendre</span></a></li>
-      <li><a href="packing.html"><span lang-inline="en">Packing List</span><span lang-inline="fr">Liste d'emballage</span></a></li>
+      <li><a href="packing.html"><span lang-inline="en">Packing List</span><span lang-inline="fr">Liste d'affaires à apporter</span></a></li>
       <li><a href="index.html#schedule"><span lang-inline="en">Schedule</span><span lang-inline="fr">Horaire</span></a></li>
       <li><a href="team.html"><span lang-inline="en">Team</span><span lang-inline="fr">Équipe</span></a></li>
       <li><a href="pricing.html"><span lang-inline="en">Pricing</span><span lang-inline="fr">Tarifs</span></a></li>
@@ -260,7 +261,7 @@
       <p style="font-style:italic; color:var(--sage-dim); font-size:0.88rem;">Detailed equipment list coming soon.</p>
     </div>
     <div lang-content="fr">
-      <h2>Liste<br/><em>d'emballage.</em></h2>
+      <h2>Liste d'affaires<br/><em>à apporter.</em></h2>
       <p>Tout ce qu'il faut apporter pour quatre jours de camping, de danse et de vie en forêt.</p>
       <p style="font-style:italic; color:var(--sage-dim); font-size:0.88rem;">Liste d'équipement détaillée à venir.</p>
     </div>
@@ -291,8 +292,8 @@
       <div class="category">
         <h3>Food &amp; kitchen</h3>
         <ul>
-          <li>All personal food &amp; snacks for 4 days</li>
-          <li>Camp stove + fuel (recommended — 1 fire pit &amp; 2 wood stoves shared on site)</li>
+          <li>All your personal food &amp; snacks for 4 days</li>
+          <li>Camp stove + fuel (we recommend bringing your own — there is only 1 fire pit &amp; 2 wood stoves on site)</li>
           <li>Cookware, utensils, plate, mug</li>
           <li>Dish soap &amp; scrubber</li>
           <li>Cooler</li>
@@ -303,9 +304,9 @@
         <h3>Personal care</h3>
         <ul>
           <li>Biodegradable soap &amp; shampoo</li>
-          <li>Sunscreen &amp; bug repellent</li>
-          <li>Towels (one for swimming, one for showering)</li>
-          <li>Headlamp + extra batteries</li>
+          <li>Sunscreen &amp; bug repellent (or long sleeve shirts!)</li>
+          <li>Towel(s)</li>
+          <li>Headlamp (charged!) + batteries</li>
           <li>Any personal medications</li>
         </ul>
       </div>
@@ -314,7 +315,7 @@
         <ul>
           <li>Journal &amp; pen</li>
           <li>Books or cards for quiet time</li>
-          <li>Musical instrument</li>
+          <li>Guitar or other musical instrument</li>
           <li>Hammock</li>
           <li>Earplugs</li>
         </ul>
@@ -325,9 +326,9 @@
 
     <div lang-content="fr">
       <div class="category">
-        <h3>Sommeil</h3>
+        <h3>Dodo</h3>
         <ul>
-          <li>Tente (tentes seulement — pas de VR ni de camionnettes)</li>
+          <li>Tente (pas de VR ni de camionnettes)</li>
           <li>Sac de couchage adapté aux nuits fraîches</li>
           <li>Matelas de camping</li>
           <li>Oreiller</li>
@@ -336,39 +337,40 @@
       <div class="category">
         <h3>Vêtements</h3>
         <ul>
-          <li>Vêtements confortables pour le mouvement (en couches — les matins sont frais)</li>
+          <li>Vêtements confortables pour bouger (pensez à amener plusieurs couches, les matins sont frais)</li>
           <li>Imperméable</li>
-          <li>Couche chaude pour les soirées</li>
+          <li>Vêtement chaud pour le soir</li>
           <li>Maillot de bain</li>
-          <li>Chaussures solides pour les sentiers</li>
+          <li>Chaussures pour randonner</li>
           <li>Sandales ou chaussures d'eau</li>
         </ul>
       </div>
       <div class="category">
         <h3>Nourriture &amp; cuisine</h3>
         <ul>
-          <li>Toute la nourriture personnelle pour 4 jours</li>
-          <li>Réchaud de camping + combustible (recommandé — 1 foyer &amp; 2 poêles à bois partagés)</li>
-          <li>Vaisselle, ustensiles, assiette, tasse</li>
-          <li>Savon à vaisselle &amp; éponge</li>
+          <li>Votre nourriture et collations pour 4 jours (3 soupers, 3 déjeuners, 3 lunchs)</li>
+          <li>Réchaud de camping + combustible (nous vous recommandons d'apporter le vôtre, car il n'y a qu'un seul foyer et deux poêles à bois sur place)</li>
+          <li>Votre nécessaire pour cuisiner</li>
+          <li>Ustensiles, assiette, tasse</li>
+          <li>Liquide vaisselle biodégradable et éponge</li>
           <li>Glacière</li>
           <li>Bouteille d'eau réutilisable</li>
         </ul>
       </div>
       <div class="category">
-        <h3>Soins personnels</h3>
+        <h3>Soin personnel</h3>
         <ul>
-          <li>Savon &amp; shampoing biodégradables</li>
-          <li>Crème solaire &amp; chasse-moustiques</li>
-          <li>Serviettes (une pour nager, une pour la douche)</li>
-          <li>Lampe frontale + piles de rechange</li>
+          <li>Savon et shampoing biodégradables</li>
+          <li>Crème solaire et anti-moustiques (ou chandails à manches longues !)</li>
+          <li>Serviette(s)</li>
+          <li>Lampe frontale (chargée !) + piles</li>
           <li>Médicaments personnels</li>
         </ul>
       </div>
       <div class="category">
-        <h3>Pratique à avoir</h3>
+        <h3>En extra</h3>
         <ul>
-          <li>Journal &amp; stylo</li>
+          <li>Cahier, stylo</li>
           <li>Livres ou cartes pour les moments calmes</li>
           <li>Instrument de musique</li>
           <li>Hamac</li>

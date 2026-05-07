@@ -61,6 +61,7 @@
       white-space: nowrap;
       letter-spacing: 0.03em;
     }
+    .navbar-brand em { font-style: italic; color: var(--gold); }
 
     .navbar-links {
       display: flex;
@@ -766,10 +767,10 @@
 
   <!-- ─────────────── NAVBAR ─────────────── -->
   <nav class="navbar">
-    <a href="#" class="navbar-brand">Camping in Contact</a>
+    <a href="#" class="navbar-brand">Camping <em>in Contact</em></a>
         <ul class="navbar-links" id="navbar-links">
       <li><a href="what.html"><span lang-inline="en">What to Expect</span><span lang-inline="fr">À quoi s'attendre</span></a></li>
-      <li><a href="packing.html"><span lang-inline="en">Packing List</span><span lang-inline="fr">Liste d'emballage</span></a></li>
+      <li><a href="packing.html"><span lang-inline="en">Packing List</span><span lang-inline="fr">Liste d'affaires à apporter</span></a></li>
       <li><a href="#schedule"><span lang-inline="en">Schedule</span><span lang-inline="fr">Horaire</span></a></li>
       <li><a href="team.html"><span lang-inline="en">Team</span><span lang-inline="fr">Équipe</span></a></li>
       <li><a href="pricing.html"><span lang-inline="en">Pricing</span><span lang-inline="fr">Tarifs</span></a></li>
@@ -813,19 +814,19 @@
 
     <div lang-content="fr">
       <h2>Ralentir.<br/><em>Bouger ensemble.</em></h2>
-      <p>Nous sommes ravis de vous accueillir à Camping in Contact, un regroupement axé sur la connexion et les pratiques autour du mouvement et du Contact Improvisation, dans la forêt tranquille du Parc national de la Mauricie, sur un site de camping privé en bord de lac. Chaque journée sera tenue avec un horaire qui laisse de la place à votre temps personnel pour nager, randonner, faire la sieste, manger, écrire, vous connecter. On dansera dans l'herbe.</p>
+      <p>Nous sommes ravies de vous accueillir à cette première édition de Camping in Contact, un regroupement axé sur la connexion et les pratiques autour du mouvement et du Contact Improvisation, dans la forêt tranquille du Parc national de la Mauricie. Nous avons accès à un site de camping privé au bord du lac. L'horaire de chaque journée est pensé pour laisser du temps libre pour nager, randonner, faire la sieste... et danser!</p>
     </div>
 
     <div style="margin-top:2.5rem;">
       <div class="section-label" style="margin-bottom:1rem;">
         <span lang-inline="en">The experience includes</span>
-        <span lang-inline="fr">L'expérience comprend</span>
+        <span lang-inline="fr">L'expérience en résumé</span>
       </div>
       <ul style="list-style:none; font-size:0.88rem; color:var(--cream-dim); line-height:2;">
-        <li><span style="color:var(--sage); margin-right:0.5rem;">–</span><span lang-inline="en">Four days in the forest</span><span lang-inline="fr">Quatre jours dans la forêt</span></li>
-        <li><span style="color:var(--sage); margin-right:0.5rem;">–</span><span lang-inline="en">Dance &amp; connect — workshops, jams &amp; open practice</span><span lang-inline="fr">Danser &amp; se connecter — ateliers, jams &amp; pratique ouverte</span></li>
-        <li><span style="color:var(--sage); margin-right:0.5rem;">–</span><span lang-inline="en">Evening campfire, song circles &amp; swimming</span><span lang-inline="fr">Feu de camp, cercles de chansons &amp; baignade</span></li>
-        <li><span style="color:var(--sage); margin-right:0.5rem;">–</span><span lang-inline="en">Waterfront camping at La Clairière (BYO gear)</span><span lang-inline="fr">Camping en bord de lac à La Clairière (apportez votre équipement)</span></li>
+        <li><span style="color:var(--sage); margin-right:0.5rem;">–</span><span lang-inline="en">Four days in the forest</span><span lang-inline="fr">FORÊT : Trois nuits pour profiter du Parc de la Mauricie</span></li>
+        <li><span style="color:var(--sage); margin-right:0.5rem;">–</span><span lang-inline="en">Dance &amp; connect — workshops, jams &amp; open practice</span><span lang-inline="fr">CONTACT IMPRO et pratiques connexes : 5 ateliers et 3 jams</span></li>
+        <li><span style="color:var(--sage); margin-right:0.5rem;">–</span><span lang-inline="en">Evening campfire, song circles &amp; swimming</span><span lang-inline="fr">FEU : Des soirées autour du feu où partager nos histoires et nos chansons</span></li>
+        <li><span style="color:var(--sage); margin-right:0.5rem;">–</span><span lang-inline="en">Waterfront camping at La Clairière (BYO gear)</span><span lang-inline="fr">LAC : Camping en bord du lac Wapizagonke</span></li>
         <li><span style="color:var(--sage); margin-right:0.5rem;">–</span><span lang-inline="en">Park entry included</span><span lang-inline="fr">Entrée au parc incluse</span></li>
       </ul>
       <p style="margin-top:1.5rem; font-size:0.82rem;">
@@ -851,16 +852,22 @@
       </div>
 
       <div lang-content="fr">
-        <h2>Quatre jours,<br/><em>danser &amp; se connecter.</em></h2>
-        <p>Chaque journée laisse place à la pratique profonde et au repos, ateliers tout au long de la journée, temps pour nager et se promener, et soirées animées par le mouvement, les offrandes et le feu.</p>
+        <h2>Quatre jours pour<br/><em>danser &amp; se connecter.</em></h2>
+        <p>Chaque journée offre un espace dédié à la pratique et au repos. Il y a des ateliers tout au long de la journée, du temps pour nager et profiter du site, ainsi que des soirées animées par le mouvement, des activités et un feu de camp.</p>
       </div>
 
       <div class="sched">
         <!-- To publish schedule: remove "schedule-preview" from the class below -->
         <div class="sched-wrap schedule-preview">
           <div class="sched-coming">
-            <div class="sched-coming-title">Full schedule<br/><em>coming soon.</em></div>
-            <div class="sched-coming-sub">Stay tuned for details</div>
+            <div class="sched-coming-title">
+              <span lang-inline="en">Full schedule<br/><em>coming soon.</em></span>
+              <span lang-inline="fr">L'horaire complet<br/><em>sera dévoilé bientôt.</em></span>
+            </div>
+            <div class="sched-coming-sub">
+              <span lang-inline="en">Stay tuned for details</span>
+              <span lang-inline="fr">Restez à l'affût</span>
+            </div>
           </div>
         <div class="cal">
 
@@ -989,12 +996,12 @@
 
     <div lang-content="en">
       <h2>Forest, water,<br/><em>open sky.</em></h2>
-      <p>La Clairière group campsite · Lac Wapizagonke · Parc national de la Mauricie, Québec</p>
+      <p>La Clairière group campsite is an exclusive camping area on the shores of Lac Wapizagonke in La Mauricie National Park. It is an ideal setting for outdoor group gatherings, offering a secluded natural backdrop.</p>
     </div>
 
     <div lang-content="fr">
-      <h2>Forêt, eau,<br/><em>ciel ouvert.</em></h2>
-      <p>Site de groupe La Clairière · Lac Wapizagonke · Parc national de la Mauricie, Québec</p>
+      <h2>Forêt, plage,<br/><em>grands espaces.</em></h2>
+      <p>Le site de groupe La Clairière est une zone de camping exclusive située sur les berges du lac Wapizagonke dans le Parc national de la Mauricie. C'est un lieu idéal pour les rassemblements de groupes en plein air, offrant un cadre naturel isolé.</p>
     </div>
 
     <div style="margin-top:2rem; border-radius:2px; overflow:hidden; border:1px solid var(--divider);">
@@ -1025,8 +1032,8 @@
     </div>
 
     <div lang-content="fr">
-      <h2>Coût<br/><em>pour participer.</em></h2>
-      <p>Nous offrons une échelle mobile et des tarifs hâtifs pour rendre ce rassemblement à la fois accessible et viable. Merci de choisir le tarif qui reflète votre capacité. Si vous pouvez vous engager tôt, ça fait une vraie différence pour nous. Les coûts de cet événement sont alloués à la rémunération des facilitateur·ices, du lieu et de vos organisatrices, ainsi qu'à planter des graines pour de futurs événements.</p>
+      <h2>Coût<br/><em>de participation.</em></h2>
+      <p>Nous proposons un barème de prix variable et des options de réservation anticipée afin de rendre cette rencontre à la fois accessible et viable financièrement. Nous comptons sur vous pour choisir le prix qui correspond à vos moyens. Si vous pouvez vous engager dès maintenant, cela fera une réelle différence pour nous en tant qu'organisatrices. Les recettes de cet événement serviront à rémunérer les facilitateur·ices, à couvrir les frais de location du site et à rémunérer les organisatrices, ainsi qu'à soutenir la germination de futurs événements.</p>
     </div>
 
     <div style="margin-top:2rem;">
@@ -1052,7 +1059,7 @@
 
       <div lang-content="fr">
         <h2>Les inscriptions ouvrent<br/><em>le 5 juin 2026.</em></h2>
-        <p>Laissez vos coordonnées ci-dessous et vous serez la première à savoir quand les inscriptions seront ouvertes.</p>
+        <p>Laissez vos coordonnées ci-dessous pour vous inscrire à notre liste de diffusion et vous serez les premiers informés dès l'ouverture des inscriptions.</p>
       </div>
 
       <form id="interest-form" action="https://formspree.io/f/maqakjnn" method="POST">
@@ -1079,10 +1086,7 @@
           <span lang-inline="fr">Rejoindre la liste de diffusion →</span>
         </button>
 
-        <p class="form-note">
-          <span lang-inline="en">No spam. You'll hear from us when registration opens.</span>
-          <span lang-inline="fr">Pas de spam. On vous écrit à l'ouverture des inscriptions.</span>
-        </p>
+
       </form>
 
       <div class="success-msg" id="success-msg">
