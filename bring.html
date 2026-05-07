@@ -62,8 +62,10 @@
     .navbar-links {
       display: flex;
       align-items: center;
+      justify-content: center;
       gap: 0.2rem;
       list-style: none;
+      flex: 1;
     }
 
     .navbar-links a {
@@ -86,7 +88,10 @@
     }
     .navbar-links a.cta:hover { background: var(--gold); color: var(--bg); }
 
-    .nav-cta-item { margin-left: 1.2rem; padding-left: 1.2rem; border-left: 1px solid rgba(122,184,138,0.35); }
+    .nav-cta-item { display: none; }
+    .navbar-right { display: flex; align-items: center; gap: 0.5rem; flex-shrink: 0; }
+    .navbar-cta { border: 1px solid rgba(212,168,83,0.5); color: var(--gold); font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.4rem 0.9rem; border-radius: 2px; text-decoration: none; transition: all 0.2s; white-space: nowrap; }
+    .navbar-cta:hover { background: var(--gold); color: var(--bg); }
 
     .nav-toggle {
       display: none;
@@ -111,6 +116,8 @@
         border-bottom: 1px solid var(--divider);
       }
       .nav-toggle { display: block; }
+      .nav-cta-item { display: list-item; }
+      .navbar-cta { display: none; }
     }
 
         /* ── LANG ── */
@@ -241,10 +248,13 @@
       <li><a href="pricing.html"><span lang-inline="en">Pricing</span><span lang-inline="fr">Tarifs</span></a></li>
       <li class="nav-cta-item"><a href="index.html#contact" class="cta"><span lang-inline="en">Register</span><span lang-inline="fr">S'inscrire</span></a></li>
     </ul>
-        <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">☰</button>
-    <div class="lang-toggle" role="navigation" aria-label="Language">
-      <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
-      <button id="btn-fr" onclick="setLang('fr')">FR</button>
+    <div class="navbar-right">
+      <a href="index.html#contact" class="navbar-cta"><span lang-inline="en">Register</span><span lang-inline="fr">S'inscrire</span></a>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">☰</button>
+      <div class="lang-toggle" role="navigation" aria-label="Language">
+        <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+        <button id="btn-fr" onclick="setLang('fr')">FR</button>
+      </div>
     </div>
   </nav>
 
