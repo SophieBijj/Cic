@@ -436,6 +436,15 @@
     document.querySelectorAll('.navbar-links a').forEach(a => {
       a.addEventListener('click', () => document.getElementById('navbar-links').classList.remove('open'));
     });
+
+    const FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSfGzN2jJVRfDsd8O5IDliGvWrV5pg74OkZUvUfkOBgJmgDWUQ/viewform';
+    const LAUNCH = new Date('2026-06-04T22:00:00Z');
+    const isPreview = new URLSearchParams(location.search).get('preview') === 'registration';
+    if (isPreview || new Date() >= LAUNCH) {
+      document.querySelectorAll('a.navbar-cta, .nav-cta-item a.cta').forEach(a => {
+        a.href = FORM_URL; a.target = '_blank'; a.rel = 'noopener';
+      });
+    }
   </script>
 </body>
 </html>
