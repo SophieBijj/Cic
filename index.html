@@ -1120,55 +1120,73 @@
         <span lang-inline="fr">S'inscrire</span>
       </div>
 
-      <div lang-content="en">
-        <h2>Registration opens<br/><em>June 5, 2026.</em></h2>
-        <p>Leave your info below to be added to our mailing list and you'll be the first to know when registration goes live.</p>
-      </div>
+      <!-- ── MAILING LIST (shown before June 4 18h) ── -->
+      <div id="mailing-section">
+        <div lang-content="en">
+          <h2>Registration opens<br/><em>June 5, 2026.</em></h2>
+          <p>Leave your info below to be added to our mailing list and you'll be the first to know when registration goes live.</p>
+        </div>
 
-      <div lang-content="fr">
-        <h2>Les inscriptions ouvrent<br/><em>le 5 juin 2026.</em></h2>
-        <p>Laissez vos coordonnées ci-dessous pour vous inscrire à notre liste de diffusion et vous serez les premiers informés dès l'ouverture des inscriptions.</p>
-      </div>
+        <div lang-content="fr">
+          <h2>Les inscriptions ouvrent<br/><em>le 5 juin 2026.</em></h2>
+          <p>Laissez vos coordonnées ci-dessous pour vous inscrire à notre liste de diffusion et vous serez les premiers informés dès l'ouverture des inscriptions.</p>
+        </div>
 
-      <form id="interest-form" action="https://formspree.io/f/maqakjnn" method="POST">
-        <div class="form-row">
-          <div class="field">
-            <label for="name">
-              <span lang-inline="en">Name</span>
-              <span lang-inline="fr">Nom</span>
+        <form id="interest-form" action="https://formspree.io/f/maqakjnn" method="POST">
+          <div class="form-row">
+            <div class="field">
+              <label for="name">
+                <span lang-inline="en">Name</span>
+                <span lang-inline="fr">Nom</span>
+              </label>
+              <input type="text" id="name" name="name"
+                placeholder="Your name / Votre nom" />
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required
+                placeholder="your@email.com" />
+            </div>
+          </div>
+
+          <div class="field" style="margin-top:1rem;">
+            <label for="comments">
+              <span lang-inline="en">Comments / Questions <em style="font-style:normal; opacity:0.6;">(optional)</em></span>
+              <span lang-inline="fr">Commentaires / Questions <em style="font-style:normal; opacity:0.6;">(optionnel)</em></span>
             </label>
-            <input type="text" id="name" name="name"
-              placeholder="Your name / Votre nom" />
+            <textarea id="comments" name="comments" placeholder="..."></textarea>
           </div>
-          <div class="field">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required
-              placeholder="your@email.com" />
-          </div>
+
+          <input type="hidden" name="_subject" value="Camping in Contact – Interest List" />
+
+          <button type="submit" class="submit-btn">
+            <span lang-inline="en">Join the mailing list →</span>
+            <span lang-inline="fr">Rejoindre la liste de diffusion →</span>
+          </button>
+        </form>
+
+        <div class="success-msg" id="success-msg">
+          <span lang-inline="en">You're on the list. See you by the lake.</span>
+          <span lang-inline="fr">Vous êtes sur la liste. À bientôt au bord du lac.</span>
         </div>
-
-        <div class="field" style="margin-top:1rem;">
-          <label for="comments">
-            <span lang-inline="en">Comments / Questions <em style="font-style:normal; opacity:0.6;">(optional)</em></span>
-            <span lang-inline="fr">Commentaires / Questions <em style="font-style:normal; opacity:0.6;">(optionnel)</em></span>
-          </label>
-          <textarea id="comments" name="comments" placeholder="..."></textarea>
-        </div>
-
-        <input type="hidden" name="_subject" value="Camping in Contact – Interest List" />
-
-        <button type="submit" class="submit-btn">
-          <span lang-inline="en">Join the mailing list →</span>
-          <span lang-inline="fr">Rejoindre la liste de diffusion →</span>
-        </button>
-
-
-      </form>
-
-      <div class="success-msg" id="success-msg">
-        <span lang-inline="en">You're on the list. See you by the lake.</span>
-        <span lang-inline="fr">Vous êtes sur la liste. À bientôt au bord du lac.</span>
       </div>
+
+      <!-- ── REGISTRATION OPEN (shown from June 4 18h) ── -->
+      <div id="register-open-section" style="display:none;">
+        <div lang-content="en">
+          <h2>Registration<br/><em>is open.</em></h2>
+          <p>Secure your spot at Camping in Contact — Sept 1–4, 2026 at Lac Wapizagonke, Parc national de la Mauricie.</p>
+        </div>
+        <div lang-content="fr">
+          <h2>Les inscriptions<br/><em>sont ouvertes.</em></h2>
+          <p>Réservez votre place à Camping in Contact — 1–4 septembre 2026 au lac Wapizagonke, Parc national de la Mauricie.</p>
+        </div>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfGzN2jJVRfDsd8O5IDliGvWrV5pg74OkZUvUfkOBgJmgDWUQ/viewform" target="_blank" rel="noopener" class="submit-btn" style="display:inline-block; text-decoration:none; margin-top:1.5rem; text-align:center;">
+          <span lang-inline="en">Register now →</span>
+          <span lang-inline="fr">S'inscrire maintenant →</span>
+        </a>
+      </div>
+
     </section>
   </div>
 
@@ -1219,9 +1237,26 @@
     const browserLang = navigator.language.startsWith('fr') ? 'fr' : 'en';
     setLang(savedLang || browserLang);
 
+    // Registration open switch (June 4 18h Montreal = June 4 22:00 UTC)
+    const FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSfGzN2jJVRfDsd8O5IDliGvWrV5pg74OkZUvUfkOBgJmgDWUQ/viewform';
+    const LAUNCH = new Date('2026-06-04T22:00:00Z');
+    const isPreview = new URLSearchParams(location.search).get('preview') === 'registration';
+    const regOpen = isPreview || new Date() >= LAUNCH;
+
+    if (regOpen) {
+      document.getElementById('mailing-section').style.display = 'none';
+      document.getElementById('register-open-section').style.display = 'block';
+      document.querySelectorAll('a.navbar-cta, .nav-cta-item a.cta').forEach(a => {
+        a.href = FORM_URL;
+        a.target = '_blank';
+        a.rel = 'noopener';
+        a.removeAttribute('onclick');
+      });
+    }
+
     // Formspree AJAX submission
     const form = document.getElementById('interest-form');
-    form.addEventListener('submit', async (e) => {
+    if (form) form.addEventListener('submit', async (e) => {
       e.preventDefault();
       const data = new FormData(form);
       try {
