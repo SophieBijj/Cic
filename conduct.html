@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Code of Conduct · Camping in Contact · Québec, Canada</title>
+  <meta name="description" content="Code of Conduct for Camping in Contact — a Contact Improvisation gathering at Lac Wapizagonke, Parc national de la Mauricie, Québec, Canada. Sept 1–4, 2026." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://campingincontact.ca/conduct.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Camping in Contact" />
+  <meta property="og:title" content="Code of Conduct · Camping in Contact · Québec, Canada" />
+  <meta property="og:description" content="Code of Conduct for Camping in Contact — a Contact Improvisation gathering at Lac Wapizagonke, Parc national de la Mauricie, Québec, Canada. Sept 1–4, 2026." />
+  <meta property="og:url" content="https://campingincontact.ca/conduct.html" />
+  <meta property="og:image" content="https://campingincontact.ca/cicsharing.jpg" />
+  <meta property="og:locale" content="fr_CA" />
+  <meta property="og:locale:alternate" content="en_CA" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Code of Conduct · Camping in Contact · Québec, Canada" />
+  <meta name="twitter:description" content="Code of Conduct for Camping in Contact — a Contact Improvisation gathering at Lac Wapizagonke, Parc national de la Mauricie, Québec, Canada. Sept 1–4, 2026." />
+  <meta name="twitter:image" content="https://campingincontact.ca/cicsharing.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg: #1e3a28;
+      --bg2: #172e20;
+      --cream: #f5edd8;
+      --cream-dim: #c2b89a;
+      --gold: #d4a853;
+      --terra: #c4622d;
+      --sage: #7ab88a;
+      --sage-dim: #2e5a3c;
+      --divider: rgba(122,184,138,0.2);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--cream);
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ── NAVBAR ── */
+    .navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 99;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2rem;
+      height: 54px;
+      background: rgba(20, 52, 32, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--divider);
+    }
+
+    .navbar-brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--cream);
+      text-decoration: none;
+      white-space: nowrap;
+      letter-spacing: 0.03em;
+    }
+    .navbar-brand em { font-style: italic; color: var(--gold); }
+
+    .navbar-links {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.2rem;
+      list-style: none;
+      flex: 1;
+    }
+
+    .navbar-links a {
+      color: var(--cream-dim);
+      text-decoration: none;
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.4rem 0.7rem;
+      border-radius: 2px;
+      transition: color 0.2s;
+      white-space: nowrap;
+    }
+
+    .navbar-links a:hover { color: var(--cream); }
+
+    .navbar-links a.cta {
+      border: 1px solid rgba(212,168,83,0.5);
+      color: var(--gold);
+    }
+    .navbar-links a.cta:hover { background: var(--gold); color: var(--bg); }
+
+    .nav-cta-item { display: none; }
+    .navbar-right { display: flex; align-items: center; gap: 0.5rem; flex-shrink: 0; }
+    .navbar-cta { border: 1px solid rgba(212,168,83,0.5); color: var(--gold); font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.4rem 0.9rem; border-radius: 2px; text-decoration: none; transition: all 0.2s; white-space: nowrap; }
+    .navbar-cta:hover { background: var(--gold); color: var(--bg); }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--cream);
+      cursor: pointer;
+      font-size: 1.2rem;
+      padding: 0.3rem;
+    }
+
+    /* ── DROPDOWN ── */
+    .nav-dropdown { position: relative; }
+    .nav-dropdown > a::after { content: ' ▾'; }
+    .nav-dropdown-menu {
+      display: none;
+      position: absolute;
+      top: calc(100% + 6px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(18,48,28,0.99);
+      border: 1px solid var(--divider);
+      border-radius: 2px;
+      min-width: 190px;
+      list-style: none;
+      padding: 0.4rem 0;
+      z-index: 200;
+    }
+    .nav-dropdown:hover .nav-dropdown-menu,
+    .nav-dropdown.open .nav-dropdown-menu { display: block; }
+    .nav-dropdown-menu li a {
+      display: block;
+      padding: 0.45rem 1.1rem;
+      font-size: 0.66rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--cream-dim);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .nav-dropdown-menu li a:hover { color: var(--cream); }
+
+    @media (max-width: 760px) {
+      .navbar-links { display: none; }
+      .navbar-links.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 54px; left: 0; right: 0;
+        background: rgba(20,52,32,0.97);
+        padding: 1rem;
+        gap: 0.2rem;
+        border-bottom: 1px solid var(--divider);
+      }
+      .nav-toggle { display: block; }
+      .nav-cta-item { display: list-item; }
+      .navbar-cta { display: none; }
+      .nav-dropdown > a::after { content: ''; }
+      .nav-dropdown-menu {
+        display: block;
+        position: static;
+        transform: none;
+        background: transparent;
+        border: none;
+        padding: 0;
+        min-width: 0;
+      }
+      .nav-dropdown-menu li a { padding: 0.3rem 1.4rem; }
+    }
+
+    /* ── LANG ── */
+    .lang-toggle {
+      display: flex;
+      background: rgba(20,48,32,0.85);
+      backdrop-filter: blur(8px);
+      border: 1px solid var(--divider);
+      border-radius: 2px;
+      overflow: hidden;
+      flex-shrink: 0;
+      margin-left: 0.75rem;
+    }
+    .lang-toggle button {
+      background: none;
+      border: none;
+      color: var(--cream-dim);
+      font-family: 'Jost', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.45rem 0.85rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .lang-toggle button.active { background: var(--sage-dim); color: var(--cream); }
+    .lang-toggle button:hover:not(.active) { color: var(--cream); }
+
+    [lang-content] { display: none; }
+    body.en [lang-content="en"] { display: block; }
+    body.fr [lang-content="fr"] { display: block; }
+    body.en [lang-inline="fr"] { display: none; }
+    body.fr [lang-inline="en"] { display: none; }
+    [lang-inline] { display: inline; }
+
+    /* ── PAGE HEADER ── */
+    .page-header {
+      padding: 9rem 2rem 4rem;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--sage);
+      margin-bottom: 1.8rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--divider);
+    }
+
+    h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      line-height: 1.1;
+      margin-bottom: 1.6rem;
+    }
+    h2 em { font-style: italic; color: var(--gold); }
+
+    p {
+      font-size: 0.92rem;
+      color: var(--cream-dim);
+      max-width: 680px;
+      margin-bottom: 1.1rem;
+      line-height: 1.8;
+    }
+
+    /* ── CONDUCT ── */
+    .conduct-body {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 2rem 5rem;
+    }
+
+    .conduct-section {
+      border-top: 1px solid var(--divider);
+      padding: 2.5rem 0;
+      max-width: 680px;
+    }
+
+    .conduct-section h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: var(--sage);
+      margin-bottom: 1rem;
+      letter-spacing: 0.02em;
+    }
+
+    .conduct-section ul {
+      list-style: none;
+      margin: 0.8rem 0;
+    }
+
+    .conduct-section ul li {
+      font-size: 0.92rem;
+      color: var(--cream-dim);
+      line-height: 1.8;
+      padding-left: 1.2rem;
+      position: relative;
+      margin-bottom: 0.4rem;
+    }
+
+    .conduct-section ul li::before {
+      content: '–';
+      position: absolute;
+      left: 0;
+      color: var(--sage);
+    }
+
+    .conduct-section blockquote {
+      border-left: 2px solid var(--sage-dim);
+      padding: 0.6rem 1.2rem;
+      margin: 1rem 0;
+      font-style: italic;
+      color: var(--cream-dim);
+      font-size: 0.88rem;
+    }
+
+    .conduct-meta {
+      font-size: 0.75rem;
+      color: var(--sage-dim);
+      margin-top: 3rem;
+      border-top: 1px solid var(--divider);
+      padding-top: 1.5rem;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 3rem 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      border-top: 1px solid var(--divider);
+      font-size: 0.75rem;
+      color: var(--sage-dim);
+      letter-spacing: 0.1em;
+    }
+  </style>
+</head>
+<body class="en">
+
+  <!-- ─────────────── NAVBAR ─────────────── -->
+  <nav class="navbar">
+    <a href="index.html" class="navbar-brand">Camping <em>in Contact</em></a>
+    <ul class="navbar-links" id="navbar-links">
+      <li><a href="what.html"><span lang-inline="en">What to Expect</span><span lang-inline="fr">À quoi s'attendre</span></a></li>
+      <li class="nav-dropdown">
+        <a href="#" class="nav-dropdown-toggle"><span lang-inline="en">More Info</span><span lang-inline="fr">Plus d'infos</span></a>
+        <ul class="nav-dropdown-menu">
+          <li><a href="packing.html"><span lang-inline="en">Packing List</span><span lang-inline="fr">Liste d'équipement</span></a></li>
+          <li><a href="conduct.html"><span lang-inline="en">Code of Conduct</span><span lang-inline="fr">Code de conduite</span></a></li>
+          <li><a href="park-map.pdf" target="_blank" rel="noopener"><span lang-inline="en">Park Map ↓</span><span lang-inline="fr">Carte du parc ↓</span></a></li>
+        </ul>
+      </li>
+      <li><a href="index.html#schedule"><span lang-inline="en">Schedule</span><span lang-inline="fr">Horaire</span></a></li>
+      <li><a href="team.html"><span lang-inline="en">Team</span><span lang-inline="fr">Équipe</span></a></li>
+      <li><a href="pricing.html"><span lang-inline="en">Pricing</span><span lang-inline="fr">Tarifs</span></a></li>
+      <li class="nav-cta-item"><a href="index.html#contact" class="cta"><span lang-inline="en">Register</span><span lang-inline="fr">S'inscrire</span></a></li>
+    </ul>
+    <div class="navbar-right">
+      <a href="index.html#contact" class="navbar-cta"><span lang-inline="en">Register</span><span lang-inline="fr">S'inscrire</span></a>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">☰</button>
+      <div class="lang-toggle" role="navigation" aria-label="Language">
+        <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+        <button id="btn-fr" onclick="setLang('fr')">FR</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ─────────────── PAGE HEADER ─────────────── -->
+  <div class="page-header">
+    <div class="section-label">
+      <span lang-inline="en">Code of Conduct</span>
+      <span lang-inline="fr">Code de conduite</span>
+    </div>
+
+    <div lang-content="en">
+      <h2>A space built on<br/><em>care &amp; trust.</em></h2>
+      <p>Welcome! Camping in Contact is a gathering of people and practices around contact improvisation.</p>
+    </div>
+
+    <div lang-content="fr">
+      <h2>Un espace fondé sur<br/><em>le soin &amp; la confiance.</em></h2>
+      <p>Bienvenue ! Camping in Contact est un rassemblement de gens et de pratiques autour du contact improvisation.</p>
+    </div>
+  </div>
+
+  <!-- ─────────────── BODY ─────────────── -->
+  <div class="conduct-body">
+
+    <!-- EN -->
+    <div lang-content="en">
+
+      <div class="conduct-section">
+        <h3>Organizers</h3>
+        <p>Camping in Contact is organized and facilitated by Sophie Bijjani, Victoria Hill, and Andrea Muñiz. The organizers have worked together to bring this first edition of Camping in Contact to fruition. This group will be referenced often in the guidelines and you can contact them at <a href="mailto:campingincontact@gmail.com" style="color:var(--sage);">campingincontact@gmail.com</a></p>
+      </div>
+
+      <div class="conduct-section">
+        <h3>Land Acknowledgment</h3>
+        <p>Camping in Contact takes place on lands recognized by treaty as the territories of the Atikamekw Nation. We would like to acknowledge these peoples and their ancestral land on which we now enjoy our community dance.</p>
+      </div>
+
+      <div class="conduct-section">
+        <h3>Taking Care of the Campground</h3>
+        <p>Participants, organizers, and facilitators are required to abide by all the rules and regulations set by Parks Canada.</p>
+      </div>
+
+      <div class="conduct-section">
+        <h3>Guidelines for Interaction</h3>
+        <p>We are intentional in creating a gathering that is based in consent culture. As Michele Beaulieux posits in <em>Getting There from Here: A Road Map for Safer Brave Open Jams</em>:</p>
+        <blockquote>"The derivation of the word consent from the Latin 'concentir', which means to feel together, is particularly instructive. Mutuality is key… In consent culture, mutual consent in interpersonal relations and respect for each other's choice is the norm. In such a culture, people ask, wait, and listen. They respect the answers they receive. They understand that everyone has the right to personal and bodily autonomy."</blockquote>
+        <p>We expect active jam collaborators. You can respectfully engage our collective dance space by doing the following:</p>
+        <ul>
+          <li>Respect and listen to your partners as well as everyone in the space.</li>
+          <li>Be mindful of how your actions affect who you're dancing with as well as those who are witnessing you.</li>
+          <li>Pay attention to your partners' verbal and non-verbal cues to maintain consent throughout your dance.</li>
+          <li>Verbally check in with your partners if it is unclear whether or not consent is given. (Tip: practice asking questions that are not answered with "yes" or "no" and listen for enthusiastic consent.)</li>
+          <li>Do not intentionally cross any boundary. Keep communication flowing.</li>
+          <li>Camping in Contact does not tolerate harassment of any kind, especially in relation to someone's race, ethnicity, age, ability, gender identity, sexual orientation, or any other marginalized identity.</li>
+          <li>If your partners say "no" (verbally or nonverbally) immediately stop the dance. Allow your partners to easily exit the dance with no need for explanation. If appropriate, you may check in with your partners and decide if you want to resume dancing. You may also check in with an organizer or our care volunteer.</li>
+        </ul>
+        <p style="margin-top:1rem;">While it is important to respect your partners and everyone in the space, there may be instances where your partners are not reading your cues. If this happens, please use your voice and do your best to take care of yourself.</p>
+        <p><strong style="color:var(--cream); font-weight:400;">What does taking care of myself look like?</strong><br/>
+        Check in with yourself and negotiate a dance that is satisfying to you. Do not tolerate or enable someone else using you. You always have the right to say "no" or "yes" in the dance, to end a dance for any reason, begin a dance or move away from a situation that doesn't suit you at any time. You don't have to apologize, accommodate, or explain. While not always accessible, we encourage you to practice saying "not this dance" in this space.</p>
+        <p>Slow down. If a dance is moving too quickly or into unknown territory, and if your partners do not read your body language to move slower, verbally tell them you would like to slow down or leave the dance.</p>
+        <p>When additional support is needed, please reach out to an organizer, the facilitator, or our care volunteer. We prioritize the safe and comfortable participation of those who have been harmed.</p>
+        <p>We welcome reports and conversations related to consent and safety. We acknowledge microaggressions and intersectionality; we will track and follow up with concerns regardless of source or severity.</p>
+        <p>If you need support after Camping in Contact about something that occurred at our gathering, please email us at <a href="mailto:campingincontact@gmail.com" style="color:var(--sage);">campingincontact@gmail.com</a></p>
+      </div>
+
+      <div class="conduct-section">
+        <h3>Physical Safety</h3>
+        <p>Contact Improvisation is inherently risky. Serious injury, though rare, is always a possibility in this form.</p>
+        <ul>
+          <li>We will be dancing outdoors. Be aware of the uneven terrain and consider this while moving.</li>
+          <li>Know the limits of your skill. While it's worthwhile to take mindful risks, don't put yourself or others in physical situations that your skill level does not support.</li>
+          <li>Be aware of what is happening around you. Are there a lot of people around? Are people generally horizontal or vertical, moving fast or slow? Are there people on the ground near you? Stay mindful about what is going on in the dance space.</li>
+          <li>Do not manipulate or push your partners beyond their abilities. It is important to spend time understanding a new partner's abilities and not make assumptions.</li>
+          <li>Avoid grabbing your partners with your hands. Do not attempt to grab your partners in an attempt to catch them if they fall — dancers need their limbs free for their own protection. Learn to fall safely and trust your partners know how to safely catch themselves.</li>
+        </ul>
+      </div>
+
+      <div class="conduct-section">
+        <h3>Sexuality</h3>
+        <p>In this form that relies primarily on touch for communication, questions can come up for dancers around physical, emotional, and/or sexual boundaries. Two important sets of skills are the ability to self-modulate in response to sensations, emotions or situations, as well as the ability and capacity to communicate one's own boundaries verbally and non-verbally. It's very important to know that some individuals carry complex trauma histories that are not immediately obvious, and may spontaneously arise during a dance or CI jam event, which may affect their ability to voice their boundary or to self-regulate.</p>
+        <p>It's normal to have sensual or sexual sensations in the course of practicing contact improvisation, and it is not wrong to have these sensations. However, actively pursuing these sensations on the dance floor may be felt as threatening, uncomfortable, or distracting to your dance partners or others in the space, and may cause you to be less sensitive to your partners' needs and feelings. We encourage you not to think of the CI dance floor as a place to pursue these sensations.</p>
+      </div>
+
+      <div class="conduct-section">
+        <h3>Substances</h3>
+        <p>Please do not use substances in a way that might hinder or limit your capacity to consciously participate in the gathering.</p>
+      </div>
+
+      <div class="conduct-section">
+        <h3>Children</h3>
+        <p>We welcome children and we support families introducing their children to Contact Improvisation. We cherish the fun and spontaneity a child brings to the dance space. When children safely engage others in a way that adds to the improvisation, magic happens. However, CI can be a physically risky environment and parents need to always be responsible for the safety of their children. Please be aware of where your child is and what they are doing, or explicitly share that responsibility with someone else in the space. Please be mindful of their impact on the space as a whole. As you do in your own dance, listen to the energetic response of others, and be open to feedback.</p>
+        <p>We invite you to share your experiences as a parent/guardian and offer suggestions for how the community can support you.</p>
+      </div>
+
+      <div class="conduct-section">
+        <h3>Animals</h3>
+        <p>No animals are allowed on the campsite.</p>
+      </div>
+
+      <div class="conduct-section">
+        <h3>Dress</h3>
+        <p><strong style="color:var(--cream); font-weight:400;">While dancing:</strong> We require that everyone fully cover their erogenous zones (swimsuit areas). All genders must wear a shirt.</p>
+        <p><strong style="color:var(--cream); font-weight:400;">Additional suggestions:</strong> Knee pads. Quick-drying fabrics are recommended for this event.</p>
+      </div>
+
+      <div class="conduct-section">
+        <h3>Silence Wristband</h3>
+        <p>While this is a gathering, it is also a time to deepen and reflect. Some people might choose to be silent and will be wearing a wristband. We ask you to respect the silence wishes of the person wearing a wristband. We ask the person wearing the wristband to use their voice when there is a consent or safety concern.</p>
+      </div>
+
+      <div class="conduct-section">
+        <h3>Physical Health &amp; Contagious Infections</h3>
+        <p>The physical intimacy of contact dance requires extra precaution to prevent spreading illnesses. If you know or think you may have an active contagious infection, please be mindful of your community and act accordingly.</p>
+        <p>Following CDC guidelines for preventing infections among athletes in high-contact environments, we recommend:</p>
+        <ul>
+          <li>Wash your hands thoroughly before and after dancing and after touching your nose or using the restroom.</li>
+          <li>Cover open wounds, cold sores, warts, etc., securely with tape and bandages so that they do not come uncovered during dancing, then wash your hands thoroughly before coming in contact with others or with shared surfaces.</li>
+          <li>Wash your dance clothes and knee pads after dancing, preferably drying them completely. Don't share your dance clothing.</li>
+        </ul>
+      </div>
+
+      <div class="conduct-section">
+        <h3>Acknowledgement</h3>
+        <p>We would like to thank communities around the world for sharing their guidelines from which this document has borrowed heavily. Special acknowledgement to The Boulder Contact Lab and the Earthdance CI Guidelines.</p>
+        <p>Other resources: <em>A Compendium of CI Jam Guidelines</em></p>
+        <p>Reference: Beaulieux, Michele. "Getting There from Here: A Road Map to Safer Brave Open Jams." <em>Resistance and Support: Contact Improvisation @50</em>, edited by Ann Cooper Albright.</p>
+      </div>
+
+      <p class="conduct-meta">Last updated May 19, 2026</p>
+
+    </div>
+
+    <!-- FR -->
+    <div lang-content="fr">
+
+      <div class="conduct-section">
+        <h3>Organisatrices</h3>
+        <p>Camping in Contact est organisé et facilité par Sophie Bijjani, Victoria Hill et Andrea Muñiz. Les organisatrices ont travaillé ensemble pour concrétiser cette première édition de Camping in Contact. Ce groupe sera souvent mentionné dans ces lignes directrices et vous pouvez les contacter à <a href="mailto:campingincontact@gmail.com" style="color:var(--sage);">campingincontact@gmail.com</a></p>
+      </div>
+
+      <div class="conduct-section">
+        <h3>Reconnaissance du territoire</h3>
+        <p>Camping in Contact se déroule sur des terres reconnues par traité comme les territoires de la Nation Atikamekw. Nous souhaitons reconnaître ces peuples et leur territoire ancestral sur lequel nous pratiquons maintenant notre danse communautaire.</p>
+      </div>
+
+      <div class="conduct-section">
+        <h3>Entretien du terrain de camping</h3>
+        <p>Les participant·es, organisatrices et facilitateur·ices sont tenu·es de respecter tous les règlements et règles établis par Parcs Canada.</p>
+      </div>
+
+      <div class="conduct-section">
+        <h3>Lignes directrices pour les interactions</h3>
+        <p>Nous sommes intentionnel·les dans la création d'un rassemblement fondé sur une culture du consentement. Comme le souligne Michele Beaulieux dans <em>Getting There from Here: A Road Map for Safer Brave Open Jams</em> :</p>
+        <blockquote>« La dérivation du mot consentement du latin "concentir", qui signifie ressentir ensemble, est particulièrement instructive. La mutualité est essentielle… Dans une culture du consentement, le consentement mutuel dans les relations interpersonnelles et le respect des choix de chacun·e est la norme. Dans une telle culture, les gens demandent, attendent et écoutent. Ils respectent les réponses qu'ils reçoivent. Ils comprennent que chacun·e a le droit à l'autonomie personnelle et corporelle. »</blockquote>
+        <p>Nous attendons des collaborateur·ices actif·ves dans les jams. Vous pouvez participer respectueusement à notre espace de danse collectif en faisant ce qui suit :</p>
+        <ul>
+          <li>Respectez et écoutez vos partenaires ainsi que tou·tes les personnes dans l'espace.</li>
+          <li>Soyez attentif·ve à la façon dont vos actions affectent votre partenaire de danse ainsi que les témoins.</li>
+          <li>Soyez attentif·ve aux signaux verbaux et non verbaux de vos partenaires pour maintenir le consentement tout au long de votre danse.</li>
+          <li>Vérifiez verbalement avec vos partenaires si le consentement n'est pas clair. (Conseil : pratiquez à poser des questions dont la réponse n'est pas simplement « oui » ou « non », et écoutez un consentement enthousiaste.)</li>
+          <li>Ne franchissez intentionnellement aucune limite. Maintenez la communication.</li>
+          <li>Camping in Contact ne tolère aucune forme de harcèlement, particulièrement en lien avec la race, l'ethnie, l'âge, les capacités, l'identité de genre, l'orientation sexuelle ou toute autre identité marginalisée.</li>
+          <li>Si vos partenaires disent « non » (verbalement ou non verbalement), arrêtez immédiatement la danse. Permettez à vos partenaires de quitter facilement la danse sans avoir à s'expliquer. Le cas échéant, vous pouvez vous vérifier mutuellement et décider si vous souhaitez reprendre. Vous pouvez également consulter une organisatrice ou notre bénévole de soin.</li>
+        </ul>
+        <p style="margin-top:1rem;">Bien qu'il soit important de respecter vos partenaires et tou·tes les personnes dans l'espace, il peut arriver que vos partenaires ne lisent pas vos signaux. Dans ce cas, utilisez votre voix et faites de votre mieux pour prendre soin de vous.</p>
+        <p><strong style="color:var(--cream); font-weight:400;">À quoi ressemble prendre soin de soi ?</strong><br/>
+        Faites le point avec vous-même et négociez une danse qui vous satisfait. Ne tolérez pas qu'on vous utilise. Vous avez toujours le droit de dire « non » ou « oui » dans la danse, de terminer une danse pour n'importe quelle raison, de commencer une danse ou de vous éloigner d'une situation qui ne vous convient pas à tout moment. Vous n'avez pas à vous excuser, accommoder ou vous expliquer. Bien que ce ne soit pas toujours accessible, nous vous encourageons à pratiquer à dire « pas cette danse » dans cet espace.</p>
+        <p>Ralentissez. Si une danse va trop vite ou dans un territoire inconnu, et si vos partenaires ne lisent pas votre langage corporel pour ralentir, dites-leur verbalement que vous souhaitez ralentir ou quittez la danse.</p>
+        <p>Lorsqu'un soutien supplémentaire est nécessaire, veuillez contacter une organisatrice, le·la facilitateur·ice ou notre bénévole de soin. Nous priorisons la participation sûre et confortable des personnes qui ont été lésées.</p>
+        <p>Nous accueillons les signalements et les conversations liés au consentement et à la sécurité. Nous reconnaissons les microagressions et l'intersectionnalité ; nous ferons le suivi des préoccupations quelle que soit leur source ou leur gravité.</p>
+        <p>Si vous avez besoin de soutien après Camping in Contact concernant quelque chose qui s'est passé lors de notre rassemblement, écrivez-nous à <a href="mailto:campingincontact@gmail.com" style="color:var(--sage);">campingincontact@gmail.com</a></p>
+      </div>
+
+      <div class="conduct-section">
+        <h3>Sécurité physique</h3>
+        <p>Le Contact Improvisation comporte des risques inhérents. Une blessure grave, bien que rare, est toujours possible dans cette forme.</p>
+        <ul>
+          <li>Nous danserons à l'extérieur. Soyez conscient·e du terrain inégal et prenez-le en compte dans vos mouvements.</li>
+          <li>Connaissez les limites de vos compétences. Bien qu'il soit utile de prendre des risques mesurés, ne vous mettez pas, vous ou les autres, dans des situations physiques que votre niveau de compétence ne soutient pas.</li>
+          <li>Soyez conscient·e de ce qui se passe autour de vous. Y a-t-il beaucoup de personnes ? Les gens sont-ils généralement horizontaux ou verticaux, en mouvement rapide ou lent ? Y a-t-il des personnes au sol près de vous ? Restez attentif·ve à ce qui se passe dans l'espace de danse.</li>
+          <li>Ne manipulez pas vos partenaires au-delà de leurs capacités. Il est important de prendre le temps de comprendre les capacités d'un·e nouveau·elle partenaire et de ne pas faire d'hypothèses.</li>
+          <li>Évitez d'agripper vos partenaires avec les mains. N'essayez pas d'attraper vos partenaires s'ils tombent — les danseur·euses ont besoin de leurs membres libres pour leur propre protection. Apprenez à tomber en sécurité et faites confiance que vos partenaires savent se réceptionner en toute sécurité.</li>
+        </ul>
+      </div>
+
+      <div class="conduct-section">
+        <h3>Sexualité</h3>
+        <p>Dans cette forme qui repose principalement sur le toucher comme moyen de communication, des questions peuvent se poser pour les danseur·euses autour des limites physiques, émotionnelles et/ou sexuelles. Deux ensembles de compétences importants sont la capacité à s'autoréguler en réponse aux sensations, émotions ou situations, ainsi que la capacité à communiquer ses propres limites verbalement et non verbalement. Il est très important de savoir que certaines personnes portent des histoires traumatiques complexes qui ne sont pas immédiatement évidentes, et qui peuvent surgir spontanément pendant une danse ou un jam de CI, ce qui peut affecter leur capacité à exprimer leurs limites ou à s'autoréguler.</p>
+        <p>Il est normal d'avoir des sensations sensuelles ou sexuelles lors de la pratique du contact improvisation, et il n'est pas mal d'avoir ces sensations. Cependant, la poursuite active de ces sensations sur la piste de danse peut être ressentie comme menaçante, inconfortable ou distrayante pour vos partenaires ou d'autres personnes dans l'espace, et peut vous rendre moins sensible aux besoins et aux sentiments de vos partenaires. Nous vous encourageons à ne pas considérer la piste de danse du CI comme un endroit pour poursuivre ces sensations.</p>
+      </div>
+
+      <div class="conduct-section">
+        <h3>Substances</h3>
+        <p>Veuillez ne pas consommer de substances d'une façon qui pourrait entraver ou limiter votre capacité à participer consciemment au rassemblement.</p>
+      </div>
+
+      <div class="conduct-section">
+        <h3>Enfants</h3>
+        <p>Nous accueillons les enfants et soutenons les familles qui initient leurs enfants au Contact Improvisation. Nous chérissons le plaisir et la spontanéité qu'un enfant apporte à l'espace de danse. Quand les enfants s'engagent en sécurité avec les autres d'une façon qui enrichit l'improvisation, la magie opère. Cependant, le CI peut être un environnement physiquement risqué et les parents doivent toujours être responsables de la sécurité de leurs enfants. Soyez conscient·e de l'endroit où se trouve votre enfant et de ce qu'il fait, ou partagez explicitement cette responsabilité avec quelqu'un d'autre dans l'espace. Soyez attentif·ve à leur impact sur l'espace dans son ensemble. Comme vous le faites dans votre propre danse, écoutez la réponse énergétique des autres et soyez ouvert·e aux retours.</p>
+        <p>Nous vous invitons à partager vos expériences en tant que parent ou tuteur·rice et à offrir des suggestions sur la façon dont la communauté peut vous soutenir.</p>
+      </div>
+
+      <div class="conduct-section">
+        <h3>Animaux</h3>
+        <p>Aucun animal n'est autorisé sur le terrain de camping.</p>
+      </div>
+
+      <div class="conduct-section">
+        <h3>Tenue vestimentaire</h3>
+        <p><strong style="color:var(--cream); font-weight:400;">En dansant :</strong> Nous demandons à tou·tes de couvrir entièrement leurs zones érogènes (zones de maillot de bain). Tou·tes les genres doivent porter un t-shirt.</p>
+        <p><strong style="color:var(--cream); font-weight:400;">Suggestions supplémentaires :</strong> Genouillères. Les tissus à séchage rapide sont recommandés pour cet événement.</p>
+      </div>
+
+      <div class="conduct-section">
+        <h3>Bracelet de silence</h3>
+        <p>Ce rassemblement est aussi un moment d'approfondissement et de réflexion. Certaines personnes pourraient choisir le silence et porteront un bracelet. Nous vous demandons de respecter le souhait de silence de la personne portant un bracelet. Nous demandons à la personne portant le bracelet d'utiliser sa voix lorsqu'il y a une préoccupation de consentement ou de sécurité.</p>
+      </div>
+
+      <div class="conduct-section">
+        <h3>Santé physique &amp; infections contagieuses</h3>
+        <p>L'intimité physique de la danse contact nécessite des précautions supplémentaires pour prévenir la propagation des maladies. Si vous savez ou pensez avoir une infection contagieuse active, soyez attentif·ve à votre communauté et agissez en conséquence.</p>
+        <p>Conformément aux recommandations du CDC pour prévenir les infections chez les athlètes dans des environnements à contact élevé, nous recommandons :</p>
+        <ul>
+          <li>Lavez-vous les mains soigneusement avant et après avoir dansé et après vous être touché le nez ou avoir utilisé les toilettes.</li>
+          <li>Couvrez solidement les plaies ouvertes, les boutons de fièvre, les verrues, etc., avec du ruban adhésif et des bandages pour qu'ils ne se découvrent pas pendant la danse, puis lavez-vous les mains soigneusement avant d'entrer en contact avec d'autres personnes ou des surfaces partagées.</li>
+          <li>Lavez vos vêtements de danse et vos genouillères après avoir dansé, en les faisant sécher complètement de préférence. Ne partagez pas vos vêtements de danse.</li>
+        </ul>
+      </div>
+
+      <div class="conduct-section">
+        <h3>Remerciements</h3>
+        <p>Nous souhaitons remercier les communautés du monde entier pour avoir partagé leurs lignes directrices dont ce document s'est largement inspiré. Remerciements particuliers au Boulder Contact Lab et aux Earthdance CI Guidelines.</p>
+        <p>Autres ressources : <em>A Compendium of CI Jam Guidelines</em></p>
+        <p>Référence : Beaulieux, Michele. « Getting There from Here: A Road Map to Safer Brave Open Jams. » <em>Resistance and Support: Contact Improvisation @50</em>, sous la direction d'Ann Cooper Albright.</p>
+      </div>
+
+      <p class="conduct-meta">Dernière mise à jour : 19 mai 2026</p>
+
+    </div>
+
+  </div>
+
+  <!-- ─────────────── FOOTER ─────────────── -->
+  <footer>
+    <p>Camping in Contact · Sept 1–4, 2026 · Parc national de la Mauricie · Québec</p>
+  </footer>
+
+  <script>
+    function setLang(lang) {
+      document.body.className = lang;
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+      document.getElementById('btn-fr').classList.toggle('active', lang === 'fr');
+      localStorage.setItem('cic-lang', lang);
+    }
+
+    const savedLang = localStorage.getItem('cic-lang');
+    const browserLang = navigator.language.startsWith('fr') ? 'fr' : 'en';
+    setLang(savedLang || browserLang);
+
+    document.getElementById('nav-toggle').addEventListener('click', () => {
+      document.getElementById('navbar-links').classList.toggle('open');
+    });
+    document.querySelectorAll('.navbar-links a').forEach(a => {
+      a.addEventListener('click', () => document.getElementById('navbar-links').classList.remove('open'));
+    });
+
+    document.querySelectorAll('.nav-dropdown-toggle').forEach(toggle => {
+      toggle.addEventListener('click', function(e) {
+        if (window.innerWidth > 760) {
+          e.preventDefault();
+          this.closest('.nav-dropdown').classList.toggle('open');
+        }
+      });
+    });
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('.nav-dropdown')) {
+        document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
+      }
+    });
+
+    const FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSfGzN2jJVRfDsd8O5IDliGvWrV5pg74OkZUvUfkOBgJmgDWUQ/viewform';
+    const LAUNCH = new Date('2026-06-04T22:00:00Z');
+    const isPreview = new URLSearchParams(location.search).get('preview') === 'registration';
+    if (isPreview || new Date() >= LAUNCH) {
+      document.querySelectorAll('a.navbar-cta, .nav-cta-item a.cta').forEach(a => {
+        a.href = FORM_URL; a.target = '_blank'; a.rel = 'noopener';
+      });
+    }
+  </script>
+</body>
+</html>
