@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Schedule (draft) · Camping in Contact</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg: #1e3a28;
+      --bg2: #172e20;
+      --cream: #f5edd8;
+      --cream-dim: #c2b89a;
+      --gold: #d4a853;
+      --terra: #c4622d;
+      --sage: #7ab88a;
+      --sage-dim: #2e5a3c;
+      --divider: rgba(122,184,138,0.2);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--cream);
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+      padding: 3rem 2rem 5rem;
+    }
+
+    /* ── LANG ── */
+    .lang-toggle {
+      display: inline-flex;
+      background: rgba(20,48,32,0.85);
+      border: 1px solid var(--divider);
+      border-radius: 2px;
+      overflow: hidden;
+      margin-bottom: 2rem;
+    }
+    .lang-toggle button {
+      background: none;
+      border: none;
+      color: var(--cream-dim);
+      font-family: 'Jost', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.45rem 0.85rem;
+      cursor: pointer;
+    }
+    .lang-toggle button.active { background: var(--sage-dim); color: var(--cream); }
+
+    [lang-content] { display: none; }
+    body.en [lang-content="en"] { display: block; }
+    body.fr [lang-content="fr"] { display: block; }
+    .len, .lfr { display: none; }
+    body.en .len { display: inline; }
+    body.fr .lfr { display: inline; }
+
+    /* ── HEADER ── */
+    .section-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--sage);
+      margin-bottom: 1rem;
+    }
+
+    h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: clamp(2rem, 5vw, 3rem);
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+    h2 em { font-style: italic; color: var(--gold); }
+
+    p { font-size: 0.92rem; color: var(--cream-dim); max-width: 600px; margin-bottom: 1.5rem; }
+
+    /* ── SCHEDULE GRID ── */
+    .sched { overflow-x: auto; padding: 2rem 0 0; }
+    .cal {
+      display: grid;
+      grid-template-columns: 28px repeat(4, minmax(0, 1fr));
+      grid-template-rows: 46px repeat(27, 22px);
+      column-gap: 6px;
+      row-gap: 0;
+      min-width: 380px;
+    }
+    .cal .dh {
+      font-size: 0.58rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--cream-dim);
+      padding-bottom: 4px;
+      border-bottom: 1px solid var(--divider);
+    }
+    .cal .dd {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem;
+      font-weight: 300;
+      color: var(--cream);
+      line-height: 1.2;
+      margin-top: 3px;
+    }
+    .cal .tl {
+      font-size: 0.48rem;
+      color: rgba(122,184,138,0.35);
+      text-align: right;
+      padding-right: 4px;
+      padding-top: 1px;
+      border-top: 0.5px solid rgba(122,184,138,0.08);
+      line-height: 1;
+    }
+    .cal .ev {
+      border-radius: 2px;
+      padding: 3px 5px;
+      overflow: hidden;
+      margin: 1px 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    .cal .ev .et {
+      font-size: 0.5rem;
+      line-height: 1.2;
+      margin-bottom: 1px;
+      letter-spacing: 0.02em;
+      opacity: 0.75;
+    }
+    .cal .ev .en { font-size: 0.78rem; font-weight: 500; line-height: 1.3; }
+    .cal .ev.logistics { background: rgba(122,184,138,0.18); }
+    .cal .ev.logistics .en, .cal .ev.logistics .et { color: #9acca8; }
+    .cal .ev.workshop { background: rgba(212,168,83,0.15); }
+    .cal .ev.workshop .en, .cal .ev.workshop .et { color: #d4a853; }
+    .cal .ev.jam { background: rgba(196,98,45,0.22); }
+    .cal .ev.jam .en, .cal .ev.jam .et { color: #c47a50; }
+    .cal .ev.social { background: rgba(245,237,216,0.09); }
+    .cal .ev.social .en, .cal .ev.social .et { color: var(--cream-dim); }
+    .cal .ev.free { border: 0.5px dashed var(--divider); background: transparent; }
+    .cal .ev.free .en { color: rgba(194,184,154,0.55); font-style: italic; font-weight: 300; }
+    .cal .ev.free .et { color: rgba(194,184,154,0.35); }
+
+    /* ── LEGEND ── */
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: 2rem;
+      font-size: 0.7rem;
+      letter-spacing: 0.06em;
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: var(--cream-dim);
+    }
+    .legend-dot {
+      width: 10px; height: 10px;
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+
+    /* ── DRAFT NOTE ── */
+    .draft-note {
+      background: rgba(212,168,83,0.08);
+      border: 1px solid rgba(212,168,83,0.3);
+      border-radius: 2px;
+      padding: 0.8rem 1.2rem;
+      font-size: 0.78rem;
+      color: var(--gold);
+      margin-bottom: 2rem;
+      max-width: 680px;
+    }
+  </style>
+</head>
+<body class="en">
+
+  <div class="lang-toggle">
+    <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+    <button id="btn-fr" onclick="setLang('fr')">FR</button>
+  </div>
+
+  <div class="draft-note">
+    ⚠ Draft working file — not linked from the site. Edit freely here. To publish: copy the <code>.cal</code> block into index.html and remove <code>schedule-preview</code> from the <code>.sched-wrap</code> class.
+  </div>
+
+  <div class="section-label">Schedule · Horaire</div>
+
+  <div lang-content="en">
+    <h2>Four days,<br/><em>dance &amp; connect.</em></h2>
+    <p>Each day holds space for deep practice and deep rest, workshops throughout the day, time to swim and wander, and evenings alive with movement, offerings and fire.</p>
+  </div>
+
+  <div lang-content="fr">
+    <h2>Quatre jours pour<br/><em>danser &amp; se connecter.</em></h2>
+    <p>Chaque journée offre un espace dédié à la pratique et au repos. Il y a des ateliers tout au long de la journée, du temps pour nager et profiter du site, ainsi que des soirées animées par le mouvement, des activités et un feu de camp.</p>
+  </div>
+
+  <div class="sched">
+    <div class="cal">
+
+      <!-- HEADERS -->
+      <div style="grid-column:1;grid-row:1"></div>
+      <div class="dh" style="grid-column:2;grid-row:1"><span class="len">Tue</span><span class="lfr">Mar</span><div class="dd">Sept 1</div></div>
+      <div class="dh" style="grid-column:3;grid-row:1"><span class="len">Wed</span><span class="lfr">Mer</span><div class="dd">Sept 2</div></div>
+      <div class="dh" style="grid-column:4;grid-row:1"><span class="len">Thu</span><span class="lfr">Jeu</span><div class="dd">Sept 3</div></div>
+      <div class="dh" style="grid-column:5;grid-row:1"><span class="len">Fri</span><span class="lfr">Ven</span><div class="dd">Sept 4</div></div>
+
+      <!-- TIME LABELS -->
+      <div class="tl" style="grid-column:1;grid-row:2">9h</div>
+      <div class="tl" style="grid-column:1;grid-row:4">10h</div>
+      <div class="tl" style="grid-column:1;grid-row:8">12h</div>
+      <div class="tl" style="grid-column:1;grid-row:12">14h</div>
+      <div class="tl" style="grid-column:1;grid-row:16">16h</div>
+      <div class="tl" style="grid-column:1;grid-row:20">18h</div>
+      <div class="tl" style="grid-column:1;grid-row:24">20h</div>
+      <div class="tl" style="grid-column:1;grid-row:28">22h</div>
+
+      <!-- TUESDAY -->
+      <div class="ev logistics" style="grid-column:2;grid-row:16/17">
+        <div class="en"><span class="len">Arrivals</span><span class="lfr">Arrivées</span></div>
+      </div>
+      <div class="ev free" style="grid-column:2;grid-row:17/23">
+        <div class="et">16h – 19h30</div>
+        <div class="en"><span class="len">Settle in &amp; explore</span><span class="lfr">Installation &amp; exploration</span></div>
+      </div>
+      <div class="ev jam" style="grid-column:2;grid-row:23/26">
+        <div class="et">19h30 – 21h</div>
+        <div class="en"><span class="len">Social jam</span><span class="lfr">Jam social</span></div>
+      </div>
+      <div class="ev social" style="grid-column:2;grid-row:26/29">
+        <div class="et">21h – 22h30</div>
+        <div class="en"><span class="len">Fireside hangs</span><span class="lfr">Veillée au feu</span></div>
+      </div>
+
+      <!-- WEDNESDAY -->
+      <div class="ev free" style="grid-column:3;grid-row:2/4">
+        <div class="en"><span class="len">Free time</span><span class="lfr">Temps libre</span></div>
+      </div>
+      <div class="ev logistics" style="grid-column:3;grid-row:4/5">
+        <div class="en"><span class="len">Opening circle</span><span class="lfr">Cercle d'ouverture</span></div>
+      </div>
+      <div class="ev workshop" style="grid-column:3;grid-row:5/9">
+        <div class="et">10h30 – 12h30</div>
+        <div class="en"><span class="len">CI workshop</span><span class="lfr">Atelier IC</span></div>
+      </div>
+      <div class="ev free" style="grid-column:3;grid-row:9/12">
+        <div class="et">12h30 – 14h</div>
+        <div class="en"><span class="len">Lunch &amp; free time</span><span class="lfr">Repas &amp; temps libre</span></div>
+      </div>
+      <div class="ev workshop" style="grid-column:3;grid-row:12/16">
+        <div class="et">14h – 16h</div>
+        <div class="en"><span class="len">Performance workshop</span><span class="lfr">Atelier performance</span></div>
+      </div>
+      <div class="ev free" style="grid-column:3;grid-row:16/23">
+        <div class="et">16h – 19h30</div>
+        <div class="en"><span class="len">Free time</span><span class="lfr">Temps libre</span></div>
+      </div>
+      <div class="ev jam" style="grid-column:3;grid-row:23/26">
+        <div class="et">19h30 – 21h</div>
+        <div class="en"><span class="len">Silent jam</span><span class="lfr">Jam silencieux</span></div>
+      </div>
+      <div class="ev social" style="grid-column:3;grid-row:26/29">
+        <div class="et">21h – 22h30</div>
+        <div class="en"><span class="len">Open mic night</span><span class="lfr">Soirée micro ouvert</span></div>
+      </div>
+
+      <!-- THURSDAY -->
+      <div class="ev workshop" style="grid-column:4;grid-row:2/5">
+        <div class="et">9h – 10h30</div>
+        <div class="en"><span class="len">Circlesongs for early risers</span><span class="lfr">Circlesongs pour les lève-tôt</span></div>
+      </div>
+      <div class="ev workshop" style="grid-column:4;grid-row:5/9">
+        <div class="et">10h30 – 12h30</div>
+        <div class="en"><span class="len">CI workshop</span><span class="lfr">Atelier IC</span></div>
+      </div>
+      <div class="ev free" style="grid-column:4;grid-row:9/12">
+        <div class="et">12h30 – 14h</div>
+        <div class="en"><span class="len">Lunch &amp; free time</span><span class="lfr">Repas &amp; temps libre</span></div>
+      </div>
+      <div class="ev workshop" style="grid-column:4;grid-row:12/16">
+        <div class="et">14h – 16h</div>
+        <div class="en"><span class="len">Sensory walk</span><span class="lfr">Marche sensorielle</span></div>
+      </div>
+      <div class="ev free" style="grid-column:4;grid-row:16/21">
+        <div class="et">16h – 18h30</div>
+        <div class="en"><span class="len">Free time</span><span class="lfr">Temps libre</span></div>
+      </div>
+      <div class="ev logistics" style="grid-column:4;grid-row:21/23">
+        <div class="et">18h30 – 19h30</div>
+        <div class="en"><span class="len">Performance &amp; closing circle</span><span class="lfr">Performance &amp; cercle de clôture</span></div>
+      </div>
+      <div class="ev jam" style="grid-column:4;grid-row:23/26">
+        <div class="et">19h30 – 21h</div>
+        <div class="en">Jam</div>
+      </div>
+      <div class="ev social" style="grid-column:4;grid-row:26/29">
+        <div class="et">21h – 22h30</div>
+        <div class="en"><span class="len">Fireside hangs</span><span class="lfr">Veillée au feu</span></div>
+      </div>
+
+      <!-- FRIDAY -->
+      <div class="ev free" style="grid-column:5;grid-row:2/5">
+        <div class="en"><span class="len">Free time</span><span class="lfr">Temps libre</span></div>
+      </div>
+      <div class="ev logistics" style="grid-column:5;grid-row:5/7">
+        <div class="en"><span class="len">Farewell</span><span class="lfr">Au revoir</span></div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="legend">
+    <div class="legend-item"><div class="legend-dot" style="background:rgba(122,184,138,0.5);"></div><span lang-content="en">Logistics / circle</span><span lang-content="fr">Logistique / cercle</span></div>
+    <div class="legend-item"><div class="legend-dot" style="background:rgba(212,168,83,0.4);"></div><span lang-content="en">Workshop</span><span lang-content="fr">Atelier</span></div>
+    <div class="legend-item"><div class="legend-dot" style="background:rgba(196,98,45,0.5);"></div><span lang-content="en">Jam</span><span lang-content="fr">Jam</span></div>
+    <div class="legend-item"><div class="legend-dot" style="background:rgba(245,237,216,0.18);"></div><span lang-content="en">Social / evening</span><span lang-content="fr">Social / soirée</span></div>
+    <div class="legend-item"><div class="legend-dot" style="border:0.5px dashed rgba(122,184,138,0.3);"></div><span lang-content="en">Free time</span><span lang-content="fr">Temps libre</span></div>
+  </div>
+
+  <script>
+    function setLang(lang) {
+      document.body.className = lang;
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+      document.getElementById('btn-fr').classList.toggle('active', lang === 'fr');
+      localStorage.setItem('cic-lang', lang);
+    }
+    const saved = localStorage.getItem('cic-lang');
+    const browser = navigator.language.startsWith('fr') ? 'fr' : 'en';
+    setLang(saved || browser);
+  </script>
+</body>
+</html>
