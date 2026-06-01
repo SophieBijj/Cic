@@ -3,21 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>What to Bring · Camping in Contact · Québec, Canada</title>
-  <meta name="description" content="What to bring to Camping in Contact — a 4-day Contact Improvisation gathering at Lac Wapizagonke, Parc national de la Mauricie, Québec, Canada. Sept 1–4, 2026." />
+  <title>Maps · Camping in Contact · Parc national de la Mauricie · Québec, Canada</title>
+  <meta name="description" content="Maps and directions for Camping in Contact at La Clairière, Lac Wapizagonke, Parc national de la Mauricie, Québec, Canada. Sept 1–4, 2026." />
   <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://campingincontact.ca/bring.html" />
+  <link rel="canonical" href="https://campingincontact.ca/maps.html" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Camping in Contact" />
-  <meta property="og:title" content="What to Bring · Camping in Contact · Québec, Canada" />
-  <meta property="og:description" content="What to bring to Camping in Contact — a 4-day Contact Improvisation gathering at Lac Wapizagonke, Parc national de la Mauricie, Québec, Canada. Sept 1–4, 2026." />
-  <meta property="og:url" content="https://campingincontact.ca/bring.html" />
+  <meta property="og:title" content="Maps · Camping in Contact · Québec, Canada" />
+  <meta property="og:description" content="Maps and directions for Camping in Contact at La Clairière, Lac Wapizagonke, Parc national de la Mauricie, Québec, Canada. Sept 1–4, 2026." />
+  <meta property="og:url" content="https://campingincontact.ca/maps.html" />
   <meta property="og:image" content="https://campingincontact.ca/cicsharing.jpg" />
   <meta property="og:locale" content="fr_CA" />
   <meta property="og:locale:alternate" content="en_CA" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="What to Bring · Camping in Contact · Québec, Canada" />
-  <meta name="twitter:description" content="What to bring to Camping in Contact — a 4-day Contact Improvisation gathering at Lac Wapizagonke, Parc national de la Mauricie, Québec, Canada. Sept 1–4, 2026." />
+  <meta name="twitter:title" content="Maps · Camping in Contact · Québec, Canada" />
+  <meta name="twitter:description" content="Maps and directions for Camping in Contact at La Clairière, Lac Wapizagonke, Parc national de la Mauricie, Québec, Canada. Sept 1–4, 2026." />
   <meta name="twitter:image" content="https://campingincontact.ca/cicsharing.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -48,7 +48,7 @@
       overflow-x: hidden;
     }
 
-        /* ── NAVBAR ── */
+    /* ── NAVBAR ── */
     .navbar {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -102,6 +102,22 @@
       color: var(--gold);
     }
     .navbar-links a.cta:hover { background: var(--gold); color: var(--bg); }
+
+    .nav-cta-item { display: none; }
+    .navbar-right { display: flex; align-items: center; gap: 0.5rem; flex-shrink: 0; }
+    .navbar-cta { border: 1px solid rgba(212,168,83,0.5); color: var(--gold); font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.4rem 0.9rem; border-radius: 2px; text-decoration: none; transition: all 0.2s; white-space: nowrap; }
+    .navbar-cta:hover { background: var(--gold); color: var(--bg); }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--cream);
+      cursor: pointer;
+      font-size: 1.2rem;
+      padding: 0.3rem;
+    }
+
     /* ── DROPDOWN ── */
     .nav-dropdown { position: relative; }
     .nav-dropdown > a::after { content: ' ▾'; }
@@ -133,22 +149,6 @@
     }
     .nav-dropdown-menu li a:hover { color: var(--cream); }
 
-
-    .nav-cta-item { display: none; }
-    .navbar-right { display: flex; align-items: center; gap: 0.5rem; flex-shrink: 0; }
-    .navbar-cta { border: 1px solid rgba(212,168,83,0.5); color: var(--gold); font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.4rem 0.9rem; border-radius: 2px; text-decoration: none; transition: all 0.2s; white-space: nowrap; }
-    .navbar-cta:hover { background: var(--gold); color: var(--bg); }
-
-    .nav-toggle {
-      display: none;
-      background: none;
-      border: none;
-      color: var(--cream);
-      cursor: pointer;
-      font-size: 1.2rem;
-      padding: 0.3rem;
-    }
-
     @media (max-width: 760px) {
       .navbar-links { display: none; }
       .navbar-links.open {
@@ -164,9 +164,20 @@
       .nav-toggle { display: block; }
       .nav-cta-item { display: list-item; }
       .navbar-cta { display: none; }
+      .nav-dropdown > a::after { content: ''; }
+      .nav-dropdown-menu {
+        display: block;
+        position: static;
+        transform: none;
+        background: transparent;
+        border: none;
+        padding: 0;
+        min-width: 0;
+      }
+      .nav-dropdown-menu li a { padding: 0.3rem 1.4rem; }
     }
 
-        /* ── LANG ── */
+    /* ── LANG ── */
     .lang-toggle {
       display: flex;
       background: rgba(20,48,32,0.85);
@@ -199,11 +210,17 @@
     body.fr [lang-inline="en"] { display: none; }
     [lang-inline] { display: inline; }
 
-    /* ── PAGE HEADER ── */
+    /* ── PAGE LAYOUT ── */
     .page-header {
-      padding: 9rem 2rem 4rem;
+      padding: 9rem 2rem 3rem;
       max-width: 860px;
       margin: 0 auto;
+    }
+
+    .maps-body {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 2rem 5rem;
     }
 
     .section-label {
@@ -230,41 +247,100 @@
       line-height: 1.1;
       margin-bottom: 1.6rem;
     }
-
     h2 em { font-style: italic; color: var(--gold); }
 
     p {
-      font-size: 1rem;
+      font-size: 0.92rem;
       color: var(--cream-dim);
-      max-width: 620px;
-      margin-bottom: 1.2rem;
+      max-width: 680px;
+      margin-bottom: 1.1rem;
+      line-height: 1.8;
     }
 
-    /* ── SECTIONS ── */
-    section {
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 4rem 2rem;
+    /* ── MAP SECTIONS ── */
+    .map-section {
       border-top: 1px solid var(--divider);
+      padding: 3rem 0;
     }
 
-    /* ── DETAIL GRID ── */
-    .detail-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2.5rem;
-      margin-top: 2rem;
+    .map-section h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 300;
+      color: var(--cream);
+      margin-bottom: 0.5rem;
+    }
+    .map-section h3 em { font-style: italic; color: var(--gold); }
+
+    .map-section .map-sub {
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--sage);
+      margin-bottom: 1.5rem;
     }
 
-    @media (max-width: 640px) {
-      .detail-grid { grid-template-columns: 1fr; }
+    .map-embed {
+      border-radius: 2px;
+      overflow: hidden;
+      border: 1px solid var(--divider);
+      margin-bottom: 1rem;
     }
 
-    .detail-grid ul {
-      list-style: none;
+    .map-embed iframe {
+      display: block;
+      width: 100%;
+      border: 0;
+      filter: grayscale(20%) contrast(1.05);
+    }
+
+    .map-embed-pdf {
+      border-radius: 2px;
+      overflow: hidden;
+      border: 1px solid var(--divider);
+      margin-bottom: 1rem;
+      background: var(--bg2);
+    }
+
+    .map-img {
+      width: 100%;
+      display: block;
+      border-radius: 2px;
+      border: 1px solid var(--divider);
+      margin-bottom: 1rem;
+    }
+
+    .map-links {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 1.2rem;
+    }
+
+    .map-link {
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--sage);
+      text-decoration: none;
+      border: 1px solid rgba(122,184,138,0.4);
+      padding: 0.5rem 1.1rem;
+      border-radius: 2px;
+      transition: all 0.2s;
+    }
+    .map-link:hover { background: var(--sage-dim); color: var(--cream); }
+
+    .address-block {
       font-size: 0.88rem;
       color: var(--cream-dim);
-      line-height: 2;
+      line-height: 1.9;
+      margin-bottom: 1.5rem;
+    }
+    .address-block strong {
+      display: block;
+      font-weight: 400;
+      color: var(--cream);
+      margin-bottom: 0.2rem;
     }
 
     /* ── FOOTER ── */
@@ -314,61 +390,137 @@
   <!-- ─────────────── PAGE HEADER ─────────────── -->
   <div class="page-header">
     <div class="section-label">
-      <span lang-inline="en">Packing list</span>
-      <span lang-inline="fr">Liste d'équipement</span>
+      <span lang-inline="en">Navigation</span>
+      <span lang-inline="fr">Navigation</span>
     </div>
-
     <div lang-content="en">
-      <h2>What to<br/><em>bring.</em></h2>
-      <p>Everything you need to know before you pack. This is a group camping site, no RVs, no electricity hookups, no cell service. Come prepared and come light.</p>
+      <h2>Find your<br/><em>way here.</em></h2>
     </div>
-
     <div lang-content="fr">
-      <h2>Quoi<br/><em>apporter.</em></h2>
-      <p>Tout ce qu'il faut savoir avant de faire vos bagages. C'est un site de camping de groupe, pas de VR, pas de branchement électrique, pas de service cellulaire. Venez préparé·e et léger·ère.</p>
+      <h2>Trouver<br/><em>le chemin.</em></h2>
     </div>
   </div>
 
-  <!-- ─────────────── BRING / ON SITE / NOT ON SITE ─────────────── -->
-  <section>
-    <div class="detail-grid">
-      <div>
-        <div class="section-label" style="margin-bottom:1rem;">
-          <span lang-inline="en">What to bring</span>
-          <span lang-inline="fr">Quoi apporter</span>
+  <!-- ─────────────── MAPS CONTENT ─────────────── -->
+  <div class="maps-body">
+
+    <!-- ── Google Maps / Address ── -->
+    <div class="map-section">
+      <h3><span lang-inline="en">Getting there</span><span lang-inline="fr">Comment s'y rendre</span></h3>
+      <div class="map-sub"><span lang-inline="en">Address · Directions</span><span lang-inline="fr">Adresse · Itinéraire</span></div>
+
+      <div lang-content="en">
+        <div class="address-block">
+          <strong>La Clairière Group Campsite</strong>
+          Parc national de la Mauricie<br/>
+          Shawinigan, QC, Canada<br/>
+          46°39'18" N · 73°00'07" W
         </div>
-        <ul>
-          <li><span style="color:var(--sage); margin-right:0.5rem;">–</span><span lang-inline="en">All personal camping gear (tents only — no RVs or vans allowed on this campsite)</span><span lang-inline="fr">Tout votre équipement de camping (tentes seulement — pas de VR ni de camionnettes)</span></li>
-          <li><span style="color:var(--sage); margin-right:0.5rem;">–</span><span lang-inline="en">Personal food &amp; cooking equipment (only one fire pit + 2 wood stoves shared on site — consider a camp stove)</span><span lang-inline="fr">Nourriture personnelle &amp; matériel de cuisine (seulement un foyer + 2 poêles à bois partagés — prévoyez un réchaud)</span></li>
-          <li><span style="color:var(--sage); margin-right:0.5rem;">–</span><span lang-inline="en">Guitar or other instrument — evenings around the fire</span><span lang-inline="fr">Guitare ou autre instrument — pour les soirées autour du feu</span></li>
-          <li><span style="color:var(--sage); margin-right:0.5rem;">–</span><span lang-inline="en">Equipment share form will be sent with your welcome email</span><span lang-inline="fr">Formulaire de partage d'équipement envoyé avec votre courriel de bienvenue</span></li>
-        </ul>
+        <p>About 2 hours from Montréal and 2.5 hours from Québec City via the Trans-Canada (Hwy 40). Rideshare details will be sent in your welcome email.</p>
+      </div>
+      <div lang-content="fr">
+        <div class="address-block">
+          <strong>Site de groupe La Clairière</strong>
+          Parc national de la Mauricie<br/>
+          Shawinigan, QC, Canada<br/>
+          46°39'18" N · 73°00'07" O
+        </div>
+        <p>Environ 2 heures de Montréal et 2h30 de Québec via la Trans-Canadienne (autoroute 40). Les détails de covoiturage seront envoyés dans votre courriel de bienvenue.</p>
+      </div>
+
+      <div class="map-embed">
+        <iframe
+          src="https://maps.google.com/maps?q=46.65497524928849,-73.00204835028967&output=embed&z=8"
+          height="380" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+
+      <div class="map-links">
+        <a class="map-link" href="https://maps.google.com/maps?daddr=46.65497524928849,-73.00204835028967" target="_blank" rel="noopener">
+          <span lang-inline="en">→ Get directions</span>
+          <span lang-inline="fr">→ Itinéraire Google Maps</span>
+        </a>
       </div>
     </div>
-  </section>
+
+    <!-- ── Park Map ── -->
+    <div class="map-section">
+      <h3><span lang-inline="en">Park Map</span><span lang-inline="fr">Carte du parc</span></h3>
+      <div class="map-sub"><span lang-inline="en">Parc national de la Mauricie — official map</span><span lang-inline="fr">Parc national de la Mauricie — carte officielle</span></div>
+
+      <div lang-content="en">
+        <p>The official Parks Canada map of La Mauricie National Park — trails, campgrounds, facilities, and access roads.</p>
+      </div>
+      <div lang-content="fr">
+        <p>La carte officielle de Parcs Canada du Parc national de la Mauricie — sentiers, emplacements de camping, installations et routes d'accès.</p>
+      </div>
+
+      <div class="map-embed-pdf">
+        <iframe src="park-map.pdf" height="520" style="display:block; width:100%; border:0;"></iframe>
+      </div>
+
+      <div class="map-links">
+        <a class="map-link" href="park-map.pdf" target="_blank" rel="noopener">
+          <span lang-inline="en">↓ Download park map (PDF)</span>
+          <span lang-inline="fr">↓ Télécharger la carte du parc (PDF)</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- ── La Clairière Campground Map ── -->
+    <div class="map-section">
+      <h3><span lang-inline="en">La Clairière Campground</span><span lang-inline="fr">Camping La Clairière</span></h3>
+      <div class="map-sub"><span lang-inline="en">Our group camping area — facilities & layout</span><span lang-inline="fr">Notre site de groupe — installations et aménagement</span></div>
+
+      <div lang-content="en">
+        <p>The detailed map of La Clairière group campsite, including fire pits, picnic tables, swimming areas, washrooms, and the trail to L'Esker (700 m).</p>
+      </div>
+      <div lang-content="fr">
+        <p>La carte détaillée du site de groupe La Clairière — foyers, tables de pique-nique, zones de baignade, toilettes, et le sentier vers L'Esker (700 m).</p>
+      </div>
+
+      <div class="map-embed-pdf">
+        <iframe src="clairiere-map.pdf" height="520" style="display:block; width:100%; border:0;"></iframe>
+      </div>
+
+      <div class="map-links">
+        <a class="map-link" href="clairiere-map.pdf" target="_blank" rel="noopener">
+          <span lang-inline="en">↓ Download campground map (PDF)</span>
+          <span lang-inline="fr">↓ Télécharger la carte du camping (PDF)</span>
+        </a>
+      </div>
+
+    </div>
+
+  </div>
 
   <!-- ─────────────── FOOTER ─────────────── -->
   <footer>
-    <p>Camping in Contact · Sept 1–4, 2026 · Parc national de la Mauricie · Québec</p>
+    <span>Camping <em style="font-style:italic; color:var(--gold);">in Contact</em> · Sept 1–4, 2026 · Lac Wapizagonke, QC</span>
+    <span style="margin-top:0.5rem;"><a href="mailto:campingincontact@gmail.com" style="color:var(--sage-dim); text-decoration:none;">campingincontact@gmail.com</a></span>
   </footer>
 
   <script>
+    const FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSfGzN2jJVRfDsd8O5IDliGvWrV5pg74OkZUvUfkOBgJmgDWUQ/viewform';
+    const LAUNCH = new Date('2026-06-04T22:00:00Z');
+    const isPreview = new URLSearchParams(location.search).get('preview') === 'registration';
+    if (isPreview || new Date() >= LAUNCH) {
+      document.querySelectorAll('a.navbar-cta, .nav-cta-item a.cta').forEach(a => {
+        a.href = FORM_URL; a.target = '_blank'; a.rel = 'noopener';
+      });
+    }
+
     function setLang(lang) {
       document.body.className = lang;
       document.getElementById('btn-en').classList.toggle('active', lang === 'en');
       document.getElementById('btn-fr').classList.toggle('active', lang === 'fr');
       localStorage.setItem('cic-lang', lang);
     }
+    const saved = localStorage.getItem('cic-lang');
+    if (saved === 'fr') setLang('fr');
 
-    const savedLang = localStorage.getItem('cic-lang');
-    const browserLang = navigator.language.startsWith('fr') ? 'fr' : 'en';
-    setLang(savedLang || browserLang);
-
-    document.getElementById('nav-toggle').addEventListener('click', () => {
+    document.getElementById('nav-toggle').addEventListener('click', function() {
       document.getElementById('navbar-links').classList.toggle('open');
-    });
-    document.querySelectorAll('.navbar-links a').forEach(a => {
-      a.addEventListener('click', () => document.getElementById('navbar-links').classList.remove('open'));
     });
 
     document.querySelectorAll('.nav-dropdown-toggle').forEach(toggle => {
@@ -384,16 +536,6 @@
         document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
       }
     });
-
-
-    const FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSfGzN2jJVRfDsd8O5IDliGvWrV5pg74OkZUvUfkOBgJmgDWUQ/viewform';
-    const LAUNCH = new Date('2026-06-04T22:00:00Z');
-    const isPreview = new URLSearchParams(location.search).get('preview') === 'registration';
-    if (isPreview || new Date() >= LAUNCH) {
-      document.querySelectorAll('a.navbar-cta, .nav-cta-item a.cta').forEach(a => {
-        a.href = FORM_URL; a.target = '_blank'; a.rel = 'noopener';
-      });
-    }
   </script>
 </body>
 </html>
