@@ -772,8 +772,6 @@
     const regOpen = isPreview || new Date() >= LAUNCH;
 
     if (regOpen) {
-      document.getElementById('mailing-section-p').style.display = 'none';
-      document.getElementById('register-open-section-p').style.display = 'block';
       document.getElementById('register-open-top').style.display = 'block';
       document.getElementById('register-btn-tiers').style.display = 'block';
       document.querySelectorAll('a.navbar-cta, .nav-cta-item a.cta').forEach(a => {
