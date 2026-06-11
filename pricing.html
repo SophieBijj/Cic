@@ -584,13 +584,26 @@
     </div>
   </div>
 
+  <!-- ─────────────── REGISTER OPEN (top) ─────────────── -->
+  <div id="register-open-top" style="display:none;">
+    <section style="padding-top:0;">
+      <div lang-content="en">
+        <h2>Registration<br/><em>is open.</em></h2>
+        <p>Secure your spot at Camping in Contact — Sept 1–4, 2026 at Lac Wapizagonke, Parc national de la Mauricie.</p>
+      </div>
+      <div lang-content="fr">
+        <h2>Les inscriptions<br/><em>sont ouvertes.</em></h2>
+        <p>Réservez votre place à Camping in Contact — 1–4 septembre 2026 au lac Wapizagonke, Parc national de la Mauricie.</p>
+      </div>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSfGzN2jJVRfDsd8O5IDliGvWrV5pg74OkZUvUfkOBgJmgDWUQ/viewform" target="_blank" rel="noopener" class="submit-btn" style="display:inline-block; text-decoration:none; margin-top:1.5rem; text-align:center;">
+        <span lang-inline="en">Register now →</span>
+        <span lang-inline="fr">S'inscrire maintenant →</span>
+      </a>
+    </section>
+  </div>
+
   <!-- ─────────────── TIERS ─────────────── -->
   <section>
-    <div class="section-label">
-      <span lang-inline="en">Ticket tiers</span>
-      <span lang-inline="fr">Niveaux de billets</span>
-    </div>
-
     <div class="tier-grid">
 
       <div class="tier sold-out">
@@ -637,6 +650,13 @@
       <span lang-inline="en">Children are Pay What You Can.</span>
       <span lang-inline="fr">Les enfants sont les bienvenus à prix libre et conscient.</span>
     </p>
+
+    <div id="register-btn-tiers" style="display:none; margin-top:2.5rem;">
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSfGzN2jJVRfDsd8O5IDliGvWrV5pg74OkZUvUfkOBgJmgDWUQ/viewform" target="_blank" rel="noopener" class="submit-btn" style="display:inline-block; text-decoration:none; text-align:center;">
+        <span lang-inline="en">Register →</span>
+        <span lang-inline="fr">S'inscrire →</span>
+      </a>
+    </div>
   </section>
 
   <!-- ─────────────── WHAT'S INCLUDED ─────────────── -->
@@ -822,6 +842,8 @@
     if (regOpen) {
       document.getElementById('mailing-section-p').style.display = 'none';
       document.getElementById('register-open-section-p').style.display = 'block';
+      document.getElementById('register-open-top').style.display = 'block';
+      document.getElementById('register-btn-tiers').style.display = 'block';
       document.querySelectorAll('a.navbar-cta, .nav-cta-item a.cta').forEach(a => {
         a.href = FORM_URL;
         a.target = '_blank';
