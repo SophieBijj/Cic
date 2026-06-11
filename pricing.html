@@ -318,6 +318,23 @@
       background: rgba(46, 90, 60, 0.6);
     }
 
+    .tier.sold-out {
+      background: var(--bg2);
+      opacity: 0.55;
+    }
+    .tier.sold-out .tier-name { text-decoration: line-through; color: var(--cream-dim); }
+    .tier-soldout-badge {
+      display: inline-block;
+      font-size: 0.58rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--terra);
+      border: 1px solid var(--terra);
+      padding: 0.15rem 0.55rem;
+      border-radius: 2px;
+      margin-bottom: 1rem;
+    }
+
     .tier-badge {
       font-size: 0.6rem;
       letter-spacing: 0.2em;
@@ -576,8 +593,9 @@
 
     <div class="tier-grid">
 
-      <div class="tier featured">
-        <div class="tier-badge">✦ <span lang-inline="en">First 5 tickets</span><span lang-inline="fr">5 premiers billets</span></div>
+      <div class="tier sold-out">
+        <div class="tier-badge"><span lang-inline="en">First 5 tickets</span><span lang-inline="fr">5 premiers billets</span></div>
+        <div class="tier-soldout-badge"><span lang-inline="en">Sold out</span><span lang-inline="fr">Complet</span></div>
         <div class="tier-name">Believers</div>
         <div class="tier-price">$98<span> – $180</span></div>
         <p class="tier-desc">
@@ -587,7 +605,7 @@
       </div>
 
       <div class="tier">
-        <div class="tier-badge"><span lang-inline="en">Next 15 tickets</span><span lang-inline="fr">15 billets suivants</span></div>
+        <div class="tier-badge"><span lang-inline="en">15 tickets</span><span lang-inline="fr">15 billets</span></div>
         <div class="tier-name"><span lang-inline="en">Early Bird</span><span lang-inline="fr">Early Bird</span></div>
         <div class="tier-price">$120<span> – $180</span></div>
         <p class="tier-desc">
