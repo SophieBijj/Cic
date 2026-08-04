@@ -775,7 +775,7 @@
     .cal {
       display: grid;
       grid-template-columns: 28px repeat(4, minmax(0, 1fr));
-      grid-template-rows: 46px repeat(27, 22px);
+      grid-template-rows: 46px repeat(60, 18px);
       column-gap: 6px;
       row-gap: 0;
       min-width: 380px;
@@ -963,18 +963,7 @@
       </div>
 
       <div class="sched">
-        <!-- To publish schedule: remove "schedule-preview" from the class below -->
-        <div class="sched-wrap schedule-preview">
-          <div class="sched-coming">
-            <div class="sched-coming-title">
-              <span lang-inline="en">Full schedule<br/><em>coming soon.</em></span>
-              <span lang-inline="fr">L'horaire complet<br/><em>sera dévoilé bientôt.</em></span>
-            </div>
-            <div class="sched-coming-sub">
-              <span lang-inline="en">Stay tuned for details</span>
-              <span lang-inline="fr">Restez à l'affût</span>
-            </div>
-          </div>
+        <div class="sched-wrap">
         <div class="cal">
 
           <!-- HEADERS -->
@@ -986,103 +975,118 @@
 
           <!-- TIME LABELS -->
           <div class="tl" style="grid-column:1;grid-row:2">9h</div>
-          <div class="tl" style="grid-column:1;grid-row:4">10h</div>
-          <div class="tl" style="grid-column:1;grid-row:8">12h</div>
-          <div class="tl" style="grid-column:1;grid-row:12">14h</div>
-          <div class="tl" style="grid-column:1;grid-row:16">16h</div>
-          <div class="tl" style="grid-column:1;grid-row:20">18h</div>
-          <div class="tl" style="grid-column:1;grid-row:24">20h</div>
-          <div class="tl" style="grid-column:1;grid-row:28">22h</div>
+          <div class="tl" style="grid-column:1;grid-row:6">10h</div>
+          <div class="tl" style="grid-column:1;grid-row:14">12h</div>
+          <div class="tl" style="grid-column:1;grid-row:22">14h</div>
+          <div class="tl" style="grid-column:1;grid-row:30">16h</div>
+          <div class="tl" style="grid-column:1;grid-row:38">18h</div>
+          <div class="tl" style="grid-column:1;grid-row:46">20h</div>
+          <div class="tl" style="grid-column:1;grid-row:54">22h</div>
+          <div class="tl" style="grid-column:1;grid-row:58">23h</div>
 
           <!-- TUESDAY -->
-          <div class="ev logistics" style="grid-column:2;grid-row:16/17">
+          <div class="ev logistics" style="grid-column:2;grid-row:30/42">
+            <div class="et">16h – 19h</div>
             <div class="en"><span class="len">Arrivals</span><span class="lfr">Arrivées</span></div>
           </div>
-          <div class="ev free" style="grid-column:2;grid-row:17/23">
-            <div class="et">16h – 19h30</div>
-            <div class="en"><span class="len">Settle in &amp; explore</span><span class="lfr">Installation &amp; exploration</span></div>
+          <div class="ev logistics" style="grid-column:2;grid-row:42/45">
+            <div class="et">19h – 19h45</div>
+            <div class="en"><span class="len">Opening circle</span><span class="lfr">Cercle d'ouverture</span></div>
           </div>
-          <div class="ev jam" style="grid-column:2;grid-row:23/26">
-            <div class="et">19h30 – 21h</div>
+          <div class="ev jam" style="grid-column:2;grid-row:45/50">
+            <div class="et">19h45 – 21h</div>
             <div class="en"><span class="len">Social jam</span><span class="lfr">Jam social</span></div>
           </div>
-          <div class="ev social" style="grid-column:2;grid-row:26/29">
+          <div class="ev social" style="grid-column:2;grid-row:50/56">
             <div class="et">21h – 22h30</div>
             <div class="en"><span class="len">Fireside hangs</span><span class="lfr">Veillée au feu</span></div>
           </div>
 
           <!-- WEDNESDAY -->
-          <div class="ev free" style="grid-column:3;grid-row:2/4">
-            <div class="en"><span class="len">Free time</span><span class="lfr">Temps libre</span></div>
+          <div class="ev logistics" style="grid-column:3;grid-row:4/5" title="9h30 – 9h45">
+            <div class="en"><span class="len">Morning ritual</span><span class="lfr">Rituel du matin</span></div>
           </div>
-          <div class="ev logistics" style="grid-column:3;grid-row:4/5">
-            <div class="en"><span class="len">Opening circle</span><span class="lfr">Cercle d'ouverture</span></div>
+          <div class="ev workshop" style="grid-column:3;grid-row:5/10">
+            <div class="et">9h45 – 11h45</div>
+            <div class="en">Listen to the Current Beneath — Ming</div>
           </div>
-          <div class="ev workshop" style="grid-column:3;grid-row:5/9">
-            <div class="et">10h30 – 12h30</div>
-            <div class="en"><span class="len">CI workshop</span><span class="lfr">Atelier IC</span></div>
-          </div>
-          <div class="ev free" style="grid-column:3;grid-row:9/12">
-            <div class="et">12h30 – 14h</div>
+          <div class="ev free" style="grid-column:3;grid-row:13/22">
+            <div class="et">11h45 – 14h</div>
             <div class="en"><span class="len">Lunch &amp; free time</span><span class="lfr">Repas &amp; temps libre</span></div>
           </div>
-          <div class="ev workshop" style="grid-column:3;grid-row:12/16">
-            <div class="et">14h – 16h</div>
-            <div class="en"><span class="len">Performance workshop</span><span class="lfr">Atelier performance</span></div>
+          <div class="ev workshop" style="grid-column:3;grid-row:22/28">
+            <div class="et">14h – 15h30</div>
+            <div class="en">Poésie des Ondes — Sophie</div>
           </div>
-          <div class="ev free" style="grid-column:3;grid-row:16/23">
-            <div class="et">16h – 19h30</div>
-            <div class="en"><span class="len">Free time</span><span class="lfr">Temps libre</span></div>
+          <div class="ev workshop" style="grid-column:3;grid-row:28/34">
+            <div class="et">15h30 – 17h30</div>
+            <div class="en"><span class="len">Sensory walk — Andrea</span><span class="lfr">Marche sensorielle — Andrea</span></div>
           </div>
-          <div class="ev jam" style="grid-column:3;grid-row:23/26">
-            <div class="et">19h30 – 21h</div>
-            <div class="en"><span class="len">Silent jam</span><span class="lfr">Jam silencieux</span></div>
+          <div class="ev free" style="grid-column:3;grid-row:36/42">
+            <div class="et">17h30 – 19h</div>
+            <div class="en"><span class="len">Dinner &amp; free time</span><span class="lfr">Repas &amp; temps libre</span></div>
           </div>
-          <div class="ev social" style="grid-column:3;grid-row:26/29">
+          <div class="ev jam" style="grid-column:3;grid-row:42/50">
+            <div class="et">19h – 21h</div>
+            <div class="en"><span class="len">Open jam</span><span class="lfr">Jam ouvert</span></div>
+          </div>
+          <div class="ev social" style="grid-column:3;grid-row:50/56">
             <div class="et">21h – 22h30</div>
             <div class="en"><span class="len">Open mic night</span><span class="lfr">Soirée micro ouvert</span></div>
           </div>
+          <div class="ev free" style="grid-column:3;grid-row:58/62">
+            <div class="et">23h</div>
+            <div class="en"><span class="len">Quiet hours</span><span class="lfr">Heures de silence</span></div>
+          </div>
 
           <!-- THURSDAY -->
-          <div class="ev workshop" style="grid-column:4;grid-row:2/5">
-            <div class="et">9h – 10h30</div>
-            <div class="en"><span class="len">Circlesongs for early risers</span><span class="lfr">Circlesongs pour les lève-tôt</span></div>
+          <div class="ev logistics" style="grid-column:4;grid-row:4/5" title="9h30 – 9h45">
+            <div class="en"><span class="len">Morning ritual</span><span class="lfr">Rituel du matin</span></div>
           </div>
-          <div class="ev workshop" style="grid-column:4;grid-row:5/9">
-            <div class="et">10h30 – 12h30</div>
-            <div class="en"><span class="len">CI workshop</span><span class="lfr">Atelier IC</span></div>
+          <div class="ev workshop" style="grid-column:4;grid-row:5/15">
+            <div class="et">9h45 – 12h15</div>
+            <div class="en">Playing with expectations — Alessia</div>
           </div>
-          <div class="ev free" style="grid-column:4;grid-row:9/12">
-            <div class="et">12h30 – 14h</div>
+          <div class="ev free" style="grid-column:4;grid-row:15/22">
+            <div class="et">12h15 – 14h</div>
             <div class="en"><span class="len">Lunch &amp; free time</span><span class="lfr">Repas &amp; temps libre</span></div>
           </div>
-          <div class="ev workshop" style="grid-column:4;grid-row:12/16">
-            <div class="et">14h – 16h</div>
-            <div class="en"><span class="len">Sensory walk</span><span class="lfr">Marche sensorielle</span></div>
+          <div class="ev workshop" style="grid-column:4;grid-row:22/31">
+            <div class="et">14h – 16h15</div>
+            <div class="en">Spontaneous Performance Creation — Victoria</div>
           </div>
-          <div class="ev free" style="grid-column:4;grid-row:16/21">
-            <div class="et">16h – 18h30</div>
-            <div class="en"><span class="len">Free time</span><span class="lfr">Temps libre</span></div>
+          <div class="ev free" style="grid-column:4;grid-row:31/42">
+            <div class="et">16h15 – 19h</div>
+            <div class="en"><span class="len">Dinner &amp; free time</span><span class="lfr">Repas &amp; temps libre</span></div>
           </div>
-          <div class="ev logistics" style="grid-column:4;grid-row:21/23">
-            <div class="et">18h30 – 19h30</div>
-            <div class="en"><span class="len">Performance &amp; closing circle</span><span class="lfr">Performance &amp; cercle de clôture</span></div>
+          <div class="ev social" style="grid-column:4;grid-row:42/44" title="19h – 19h30">
+            <div class="en"><span class="len">Sunset performance</span><span class="lfr">Coucher de soleil</span></div>
           </div>
-          <div class="ev jam" style="grid-column:4;grid-row:23/26">
+          <div class="ev jam" style="grid-column:4;grid-row:44/50">
             <div class="et">19h30 – 21h</div>
-            <div class="en">Jam</div>
+            <div class="en"><span class="len">Open jam</span><span class="lfr">Jam ouvert</span></div>
           </div>
-          <div class="ev social" style="grid-column:4;grid-row:26/29">
+          <div class="ev social" style="grid-column:4;grid-row:50/56">
             <div class="et">21h – 22h30</div>
             <div class="en"><span class="len">Fireside hangs</span><span class="lfr">Veillée au feu</span></div>
           </div>
+          <div class="ev free" style="grid-column:4;grid-row:58/62">
+            <div class="et">23h</div>
+            <div class="en"><span class="len">Quiet hours</span><span class="lfr">Heures de silence</span></div>
+          </div>
 
           <!-- FRIDAY -->
-          <div class="ev free" style="grid-column:5;grid-row:2/5">
-            <div class="en"><span class="len">Free time</span><span class="lfr">Temps libre</span></div>
+          <div class="ev logistics" style="grid-column:5;grid-row:2/4">
+            <div class="et">9h – 9h30</div>
+            <div class="en"><span class="len">Packing up :)</span><span class="lfr">Rangement :)</span></div>
           </div>
-          <div class="ev logistics" style="grid-column:5;grid-row:5/7">
-            <div class="en"><span class="len">Farewell</span><span class="lfr">Au revoir</span></div>
+          <div class="ev logistics" style="grid-column:5;grid-row:4/8">
+            <div class="et">9h30 – 10h30</div>
+            <div class="en"><span class="len">Closing circle &amp; goodbyes</span><span class="lfr">Cercle de clôture &amp; au revoir</span></div>
+          </div>
+          <div class="ev logistics" style="grid-column:5;grid-row:10/14">
+            <div class="et">11h</div>
+            <div class="en"><span class="len">Departure</span><span class="lfr">Départ</span></div>
           </div>
 
         </div>
