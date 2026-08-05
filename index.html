@@ -853,7 +853,57 @@
     .cal .ev.free .en { color: rgba(194,184,154,0.55); font-style: italic; font-weight: 300; }
     .cal .ev.free .et { color: rgba(194,184,154,0.35); }
 
-
+    /* ── WORKSHOP DESCRIPTIONS ── */
+    .workshop-list {
+      margin-top: 2.5rem;
+      border: 1px solid var(--divider);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .workshop { border-bottom: 1px solid var(--divider); background: var(--bg2); }
+    .workshop:last-child { border-bottom: none; }
+    .workshop summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 1.2rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .workshop summary::-webkit-details-marker { display: none; }
+    .workshop-heading { display: flex; flex-direction: column; gap: 0.2rem; }
+    .workshop-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
+      font-weight: 400;
+      color: var(--cream);
+    }
+    .workshop-by {
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      color: var(--sage);
+    }
+    .workshop-icon {
+      font-size: 1.2rem;
+      font-weight: 300;
+      color: var(--gold);
+      flex-shrink: 0;
+    }
+    .workshop[open] .workshop-icon-open { display: inline; }
+    .workshop[open] .workshop-icon-closed { display: none; }
+    .workshop-icon-open { display: none; }
+    .workshop-body {
+      padding: 0 1.5rem 1.6rem;
+      font-size: 0.86rem;
+      color: var(--cream-dim);
+      line-height: 1.8;
+    }
+    .workshop-body p { max-width: none; margin-bottom: 1rem; }
+    .workshop-body p:last-child { margin-bottom: 0; }
+    .workshop-body ul { margin: 0.6rem 0 1.1rem 1.2rem; padding: 0; }
+    .workshop-body li { margin-bottom: 0.35rem; }
+    .workshop-body .ws-note { color: var(--sage); font-style: italic; }
 
     /* ── HERO DATE ── */
     .hero-date {
@@ -1098,6 +1148,120 @@
       </div>
     </section>
   </div>
+
+  <!-- ─────────────── WORKSHOP DESCRIPTIONS ─────────────── -->
+  <section>
+    <div class="section-label">
+      <span lang-inline="en">Workshops</span>
+      <span lang-inline="fr">Ateliers</span>
+    </div>
+
+    <div lang-content="en">
+      <h2>Workshop<br/><em>descriptions.</em></h2>
+      <p>No Facebook, no problem — here's what each session holds. Tap any workshop to expand it.</p>
+    </div>
+
+    <div lang-content="fr">
+      <h2>Descriptions<br/><em>des ateliers.</em></h2>
+      <p>Pas de Facebook, pas de problème — voici ce que chaque atelier vous réserve. Cliquez sur un atelier pour le déplier.</p>
+    </div>
+
+    <div class="workshop-list">
+
+      <details class="workshop">
+        <summary>
+          <div class="workshop-heading">
+            <span class="workshop-title">Listen to the Current Beneath</span>
+            <span class="workshop-by">Ming Tsai</span>
+          </div>
+          <span class="workshop-icon"><span class="workshop-icon-closed">+</span><span class="workshop-icon-open">–</span></span>
+        </summary>
+        <div class="workshop-body">
+          <div lang-content="en"><p>The lake lies still beneath the sky<br/>No rushing race, no winding flight<br/>The bodies sway, the breath reverberates<br/>Flowing with the current beneath our flight</p></div>
+          <div lang-content="fr"><p>Le lac repose, immobile sous le ciel<br/>Ni course pressée, ni vol sinueux<br/>Les corps oscillent, le souffle résonne<br/>Portés par le courant sous notre envol</p></div>
+        </div>
+      </details>
+
+      <details class="workshop">
+        <summary>
+          <div class="workshop-heading">
+            <span class="workshop-title"><span lang-inline="en">Two Hours Before Opening Night</span><span lang-inline="fr">Deux heures avant la première</span></span>
+            <span class="workshop-by">Victoria Hill</span>
+          </div>
+          <span class="workshop-icon"><span class="workshop-icon-closed">+</span><span class="workshop-icon-open">–</span></span>
+        </summary>
+        <div class="workshop-body">
+          <div lang-content="en">
+            <p><em>A spontaneous performance creation workshop.</em></p>
+            <p>In just two hours, we'll gather &amp; create scores, gestures, words, objects, and impulses to create a performance that will premiere the following evening at sunset.</p>
+            <p>We'll work with what's alive in the group, which could be:</p>
+            <ul>
+              <li>score-making</li>
+              <li>improvisation structures</li>
+              <li>collective composition</li>
+              <li>movement</li>
+              <li>language, poetry, and stories</li>
+              <li>found materials and simple land-based prop making</li>
+              <li>listening to the forest as collaborator</li>
+            </ul>
+            <p>Bring whatever you have to share: your body, your voice, a poem, an idea, a question, a craft, a skill for making, or simply your curiosity.</p>
+            <p>No "finished" performance is expected (obviously, we only had two hours!). No experience is necessary. We'll build from what's in the group and what's in the forest.</p>
+            <p>Workshop: 2 hours<br/>Performance: The following day at sunset.</p>
+            <p>Let's make something that only exists because we were there.</p>
+            <p class="ws-note">Anyone not interested in taking part in this workshop is invited to be the most supportive audience in the entire world :)</p>
+          </div>
+          <div lang-content="fr">
+            <p><em>Un atelier de création de performance spontanée.</em></p>
+            <p>En seulement deux heures, nous allons rassembler et créer des partitions, des gestes, des mots, des objets et des impulsions pour bâtir une performance qui sera présentée le lendemain soir, au coucher du soleil.</p>
+            <p>Nous travaillerons avec ce qui est vivant dans le groupe, ce qui pourrait inclure :</p>
+            <ul>
+              <li>création de partitions</li>
+              <li>structures d'improvisation</li>
+              <li>composition collective</li>
+              <li>mouvement</li>
+              <li>langage, poésie et histoires</li>
+              <li>matériaux trouvés et fabrication simple d'accessoires à même le territoire</li>
+              <li>l'écoute de la forêt comme collaboratrice</li>
+            </ul>
+            <p>Apportez ce que vous avez envie de partager : votre corps, votre voix, un poème, une idée, une question, un savoir-faire, une habileté de fabrication, ou simplement votre curiosité.</p>
+            <p>Aucune performance « finie » n'est attendue (évidemment, nous n'avons eu que deux heures!). Aucune expérience n'est nécessaire. Nous construirons à partir de ce qui est présent dans le groupe et dans la forêt.</p>
+            <p>Atelier : 2 heures<br/>Performance : Le lendemain, au coucher du soleil.</p>
+            <p>Créons quelque chose qui n'existe que parce que nous étions là.</p>
+            <p class="ws-note">Les personnes qui préfèrent ne pas participer à cet atelier sont invitées à devenir le public le plus enthousiaste du monde entier :)</p>
+          </div>
+        </div>
+      </details>
+
+      <details class="workshop">
+        <summary>
+          <div class="workshop-heading">
+            <span class="workshop-title"><span lang-inline="en">Playing with Expectations</span><span lang-inline="fr">Jouer avec les attentes</span></span>
+            <span class="workshop-by">Alessia De Salis <span class="ws-note">(~2.5h)</span></span>
+          </div>
+          <span class="workshop-icon"><span class="workshop-icon-closed">+</span><span class="workshop-icon-open">–</span></span>
+        </summary>
+        <div class="workshop-body">
+          <div lang-content="en"><p>Inspired by the practice of butoh and clown, we'll create space and find presence to allow play to unfold. From this place, we'll explore how to offer opportunities for play through teasing, feinting, and playing with expectations. By shifting our usual patterns of responding, we'll create space for surprise, curiosity, and connection, finding the games that might unfold and revealing new possibilities within the dance.</p></div>
+          <div lang-content="fr"><p>Inspiré·es par les pratiques du butō et du clown, nous créerons un espace et trouverons une présence permettant au jeu de se déployer. À partir de ce lieu, nous explorerons comment offrir des occasions de jouer par la taquinerie, la feinte et le jeu avec les attentes. En déplaçant nos façons habituelles de répondre, nous créerons un espace propice à la surprise, à la curiosité et à la connexion, en découvrant les jeux qui pourraient émerger et en révélant de nouvelles possibilités au sein de la danse.</p></div>
+        </div>
+      </details>
+
+      <details class="workshop">
+        <summary>
+          <div class="workshop-heading">
+            <span class="workshop-title"><span lang-inline="en">Wavelength Poetry</span><span lang-inline="fr">Poésie des Ondes</span></span>
+            <span class="workshop-by">Sophie Bijjani <span class="ws-note">(1h30)</span></span>
+          </div>
+          <span class="workshop-icon"><span class="workshop-icon-closed">+</span><span class="workshop-icon-open">–</span></span>
+        </summary>
+        <div class="workshop-body">
+          <div lang-content="en"><p>Through Circlesong and poetic expression, we will give voice—through sound, words, and melodies—to the symphony that lives within us. This is a space to reveal our individual voices within the group, to co-create from our respective universes, and to sound our dreams to life with our voices.</p></div>
+          <div lang-content="fr"><p>À travers la Circlesong et l'expression poétique, nous mettrons en sons, en mots et en mélodies la symphonie qui vit en nous. C'est un espace pour révéler sa voix au sein du groupe, co-créer à partir de nos univers respectifs et faire vibrer nos cordes vocales et nos rêves.</p></div>
+        </div>
+      </details>
+
+    </div>
+  </section>
 
 
   <!-- ─────────────── LOCATION ─────────────── -->
